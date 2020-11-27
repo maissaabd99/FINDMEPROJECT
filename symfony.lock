@@ -32,7 +32,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "2.0",
-            "ref": "a9f2463b9f73efe74482f831f03a204a41328555"
+            "ref": "368794356c1fb634e58b38ad2addb36933f2e73e"
         },
         "files": [
             "./config/packages/doctrine.yaml",
@@ -91,7 +91,7 @@
         "version": "2.1.1"
     },
     "php": {
-        "version": "7.4"
+        "version": "7.1"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.1.0"
@@ -178,6 +178,9 @@
     "symfony/dependency-injection": {
         "version": "v4.4.16"
     },
+    "symfony/deprecation-contracts": {
+        "version": "v2.2.0"
+    },
     "symfony/doctrine-bridge": {
         "version": "v4.4.16"
     },
@@ -240,6 +243,15 @@
             "./src/Controller/.gitignore",
             "./src/Kernel.php"
         ]
+    },
+    "symfony/google-mailer": {
+        "version": "4.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.4",
+            "ref": "f8fd4ddb9b477510f8f4bce2b9c054ab428c0120"
+        }
     },
     "symfony/http-client": {
         "version": "v4.4.16"
