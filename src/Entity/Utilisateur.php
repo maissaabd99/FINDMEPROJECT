@@ -6,11 +6,14 @@ use App\Repository\UtilisateurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UtilisateurRepository::class)
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
-class Utilisateur
+class Utilisateur implements UserInterface,\Serializable
 {
     /**
      * @ORM\Id
@@ -60,6 +63,23 @@ class Utilisateur
     private $bloque;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $verified;
+
+
+    public function getVerified()
+    {
+        return $this->verified;
+    }
+
+
+    public function setVerified($verified): void
+    {
+        $this->verified = $verified;
+    }
+
+    /**
      * @ORM\OneToOne(targetEntity=Conversation::class, mappedBy="utilisateur", cascade={"persist", "remove"})
      */
     private $conversation;
@@ -78,6 +98,11 @@ class Utilisateur
      * @ORM\OneToMany(targetEntity=Publication::class, mappedBy="utilisateur")
      */
     private $publications;
+
+//    /**
+//     * @ORM\Column(type="boolean")
+//     */
+//    private $isVerified = false;
 
     public function __construct()
     {
@@ -183,7 +208,6 @@ class Utilisateur
     public function setBloque(?string $bloque): self
     {
         $this->bloque = $bloque;
-
         return $this;
     }
 
@@ -294,4 +318,75 @@ class Utilisateur
 
         return $this;
     }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function getRoles()
+    {
+       return ['ROLE_USER'];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSalt()
+    {
+        return null;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function eraseCredentials()
+    {
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function serialize()
+    {
+        return serialize(
+            [$this->id,
+                $this->username,
+                $this->password,
+                $this->email,
+                $this->nom,
+                $this->prenom,
+                $this->tel,
+                $this->adresse,
+                $this->bloque]
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function unserialize($serialized)
+    {
+        list($this->id,
+            $this->username,
+            $this->password,
+            $this->email,
+            $this->nom,
+            $this->prenom,
+            $this->tel,
+            $this->adresse,
+            $this->bloque
+        ) = unserialize($serialized , ['allowed_classes' => false]);
+    }
+
+//    public function isVerified(): bool
+//    {
+//        return $this->isVerified;
+//    }
+//
+//    public function setIsVerified(bool $isVerified): self
+//    {
+//        $this->isVerified = $isVerified;
+//
+//        return $this;
+//    }
 }

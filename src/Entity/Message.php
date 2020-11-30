@@ -28,7 +28,7 @@ class Message
     private $date_mess;
 
     /**
-     * @ORM\ManyToOne(targetEntity=administration::class, inversedBy="messages")
+     * @ORM\ManyToOne(targetEntity=Administration::class, inversedBy="messages")
      */
     private $admin;
 

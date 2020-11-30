@@ -1,0 +1,90 @@
+{%  include 'header.html.twig' %}
+    {% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+<section class=" bg-image  route" style="background-image: url({{ asset("assets/img/overlay-bg.jpg") }})">
+    <div class="overlay-mf"></div>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="contact-mf" >
+                    <div id="contact" class="box-shadow-full"  style="margin-left: 170px">
+                        <div class="row text-center" style="margin-left: 85px">
+                            <div class="col-md-10">
+                                <div class="title-box-2">
+                                    <h4>Modifier vos données personnelles</h4>
+                                    <hr style="color: #0056b3;height: 8px;width: 100%">
+                                </div>
+                                <div>
+                                    {{ form_start(form) }}
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{ form_widget(form.nom,{'attr': {'style': 'placeholder: votre nom'}}) }}
+                                                <span style="color:red"> {{ form_errors(form.nom,{'attr': {'style': 'color :red'}}) }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{ form_widget(form.prenom,{'attr': {'style': 'padding :20px','placeholder' : 'votre prenom ','font-size':' 100px'}}) }}
+                                                <span style="color:red">{{ form_errors(form.prenom,{'attr': {'style': 'color :red'}}) }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{ form_widget(form.adresse,{'attr': {'style': 'padding :20px','placeholder' : 'Adresse ','font-size':' 100px'}}) }}
+                                                <span style="color:red">  {{ form_errors(form.adresse,{'attr': {'style': 'color :red'}}) }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{ form_widget(form.tel,{'attr': {'style': 'padding :20px','placeholder' : 'Téléphone ','font-size':' 100px'}}) }}
+                                                <span style="color:red">{{ form_errors(form.tel,{'attr': {'style': 'color :red'}}) }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{ form_widget(form.username,{'attr': {'style': 'padding :20px','placeholder' : 'username ','font-size':' 100px'}})}}
+                                                <span style="color:red"> {{ form_errors(form.username,{'attr': {'style': 'color:red'}})}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{ form_widget(form.email,{'attr': {'style': 'padding :20px','placeholder' : 'exemple@domaine.com ','font-size':' 100px'}})}}
+                                                <span style="color:red">  {{ form_errors(form.email,{'attr': {'style': 'color:red'}})}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{form_widget(form.plainPassword,{label:'Nouveau Password'})}}
+                                                <span style="color:red">{{form_errors(form.plainPassword,{'attr': {'style': 'color:red'}})}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="submit" class="button button-a button-big button-rouded">Modifier</button>
+                                        </div>
+                                    </div>
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="copyright-box">
+                        <p class="copyright">&copy; Copyright <strong>FINDME</strong>. All Rights Reserved</p>
+                        <div class="credits">
+                            Developed by <a href="https://bootstrapmade.com/">GALACTECH TEAM</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</section>

@@ -1,0 +1,95 @@
+{% include 'header.html.twig' %}
+
+<section class=" bg-image  route" style="background-image: url({{ asset("assets/img/overlay-bg.jpg") }})">
+    <div class="overlay-mf"></div>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="contact-mf" >
+                    <div id="contact" class="box-shadow-full"  style="margin-left: 170px">
+                        <div class="row text-center" style="margin-left: 85px">
+                            <div class="col-md-10">
+                                <div class="title-box-2">
+                                    <h5 class="title-left">
+                                        Register here
+                                    </h5>
+                                </div>
+                                <div>
+                                    <form action="" method="post" role="form" class="contactForm">
+                                        <div id="sendmessage">Your message has been sent. Thank you!</div>
+                                        <div id="errormessage"></div>
+                                        <div class="row">
+                                            <div class="col-md-12 mb-3">
+                                                <div class="form-group">
+                                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                                    <div class="validation"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                                    <div class="validation"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                                    <div class="validation"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <div class="form-group">
+                                                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                                    <div class="validation"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="submit" class="button button-a button-big button-rouded">Register</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="copyright-box">
+                        <p class="copyright">&copy; Copyright <strong>FINDME</strong>. All Rights Reserved</p>
+                        <div class="credits">
+                            Developed by <a href="https://bootstrapmade.com/">GALACTECH TEAM</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</section>
+
+<script src="{{ asset("assets/lib/jquery/jquery.min.js") }}"></script>
+
+<script src="{{ asset("assets/lib/jquery/jquery-migrate.min.js") }}"></script>
+
+<script src="{{ asset("assets/lib/popper/popper.min.js") }}"></script>
+
+<script src="{{ asset("assets/lib/bootstrap/js/bootstrap.min.js") }}"></script>
+
+<script src="{{ asset("assets/lib/easing/easing.min.js") }}"></script>
+
+<script src="{{ asset("assets/lib/counterup/jquery.waypoints.min.js") }}"></script>
+
+<script src="{{ asset("assets/lib/counterup/jquery.counterup.js") }}"></script>
+
+<script src="{{ asset("assets/lib/owlcarousel/owl.carousel.min.js") }}"></script>
+
+<script src="{{ asset("assets/lib/lightbox/js/lightbox.min.js") }}"></script>
+
+<script src="{{ asset("assets/lib/typed/typed.min.js") }}"></script>

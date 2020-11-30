@@ -45,7 +45,7 @@ class Publication
     private $utilisateur;
 
     /**
-     * @ORM\ManyToOne(targetEntity=administration::class, inversedBy="publications")
+     * @ORM\ManyToOne(targetEntity=Administration::class, inversedBy="publications")
      */
     private $admin;
 
