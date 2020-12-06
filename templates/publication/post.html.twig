@@ -1,165 +1,415 @@
 {% include 'header.html.twig' %}
+<br><br>
+<style>
+    $icon-font-path: '../fonts/';
+    // bower:scss
+    @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+    // endbower
+
+       .my-gallery {
+           width: 100%;
+           float: left;
+       }
+    .my-gallery img {
+        width: 100%;
+        height: auto;
+    }
+    .my-gallery figure {
+        display: block;
+        float: left;
+        margin: 0 5px 5px 0;
+        width: 150px;
+    }
+    .my-gallery figcaption {
+        display: none;
+    }
+
+    .spliter {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .carte{
+        display:inline-block;
+    }
+</style>
+<!-- Photoswipe CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
 <section id="work" class="portfolio-mf sect-pt4 route">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <div class="title-box text-center">
-                    <h3 class="title-a">
-                        Portfolio
-                    </h3>
+                    <a href="{{ path('newpost') }}"><button class="button button-a button-big button-rouded">Créer un nouvelle publication</button></a>
                     <p class="subtitle-a">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     </p>
-                    <div class="line-mf"></div>
+                    <div class="line-mf">
+                    </div>
                 </div>
+                {% for message in app.flashes('notice') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="work-box">
-                    <a href="img/work-1.jpg" data-lightbox="gallery-mf">
-                        <div class="work-img">
-                            <img src="img/work-1.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="work-content">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h2 class="w-title">Lorem impsum dolor</h2>
-                                    <div class="w-more">
-                                        <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="w-like">
-                                        <span class="ion-ios-plus-outline"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="work-box">
-                    <a href="img/work-2.jpg" data-lightbox="gallery-mf">
-                        <div class="work-img">
-                            <img src="img/work-2.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="work-content">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h2 class="w-title">Loreda Cuno Nere</h2>
-                                    <div class="w-more">
-                                        <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="w-like">
-                                        <span class="ion-ios-plus-outline"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="work-box">
-                    <a href="img/work-3.jpg" data-lightbox="gallery-mf">
-                        <div class="work-img">
-                            <img src="img/work-3.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="work-content">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h2 class="w-title">Mavrito Lana Dere</h2>
-                                    <div class="w-more">
-                                        <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="w-like">
-                                        <span class="ion-ios-plus-outline"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="work-box">
-                    <a href="img/work-4.jpg" data-lightbox="gallery-mf">
-                        <div class="work-img">
-                            <img src="img/work-4.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="work-content">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h2 class="w-title">Bindo Laro Cado</h2>
-                                    <div class="w-more">
-                                        <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="w-like">
-                                        <span class="ion-ios-plus-outline"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="work-box">
-                    <a href="img/work-5.jpg" data-lightbox="gallery-mf">
-                        <div class="work-img">
-                            <img src="img/work-5.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="work-content">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h2 class="w-title">Studio Lena Mado</h2>
-                                    <div class="w-more">
-                                        <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="w-like">
-                                        <span class="ion-ios-plus-outline"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="work-box">
-                    <a href="img/work-6.jpg" data-lightbox="gallery-mf">
-                        <div class="work-img">
-                            <img src="img/work-6.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="work-content">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h2 class="w-title">Studio Big Bang</h2>
-                                    <div class="w-more">
-                                        <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2017</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="w-like">
-                                        <span class="ion-ios-plus-outline"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
+
+  <section>
+    <div  class=" container" style="margin-left: 170px">
+    <div class="col align-content-center animated fadeIn carte ">
+        {% for pub in pubs %}
+        <div class=" shadow p-3 mb-5 bg-white rounded card center  ml-5 col-lg-5 carte"  style="width: 200rem;height: 530px">
+                <p style="margin-left: 10px;font-size: small;color: lightsteelblue">Publié par {{ app.user.nom}} {{ app.user.prenom}}</p>
+                <p style="margin-left: 285px;font-size: small;color: lightsteelblue;margin-top: -35px;">le {{ pub.datePub |date('d/m/Y H:i') }}</p>
+                <div class="card-body" style="margin-top: -20px">
+                    <h5 > {{ pub.nom }}</h5>
+                    <h6 >{{ pub.sexe}}</h6>
+                    <h6 >{{ pub.age}} ans </h6>
+                    <div style="height: 100px;position: relative">
+                       <span style="font-size: small">{{ pub.contenuPub}}</span>
+                    </div>
+                    <div class="inner">
+                        <!--***** GALLERY *****-->
+                        {% if pub.mutimedia | length == 4 %}
+{#                       {% for img in pub.mutimedia %}#}
+                        <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                              <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                  <table>
+                                      <tr>
+                                          <td>
+                                              <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                              <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                 <img src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 170px;height: 100px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
+                                              </a>
+                                              </figure>
+                                          </td>
+                                          <td>
+                                              <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                              <a href="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                   <img src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 160px;height: 100px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
+                                              </a>
+                                              </figure>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td >
+                                              <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                              <a href="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                  <img src="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" style="width: 160px;height: 100px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
+                                              </a>
+                                              </figure>
+                                          </td>
+                                          <td colspan="2">
+                                              <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                                  <a href="{{ asset('uploads/images/'~pub.mutimedia[3].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                      <img src="{{ asset('uploads/images/'~pub.mutimedia[3].source) }}" style="width: 160px;height: 100px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
+                                                  </a>
+                                              </figure>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </a>
+                            </figure>
+                        </div>
+                        {% endif %}
+                        {% if pub.mutimedia | length == 3 %}
+                            <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                                    <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                        <img src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 170px;height: 100px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
+                                                    </a>
+                                                </figure>
+                                            </td>
+                                            <td>
+                                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                                    <a href="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                        <img src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 160px;height: 100px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
+                                                    </a>
+                                                </figure>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                                    <a href="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                        <img src="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" style="width: 250px;height: 120px;margin-left: 60px" itemprop="thumbnail" alt="Image description" />
+                                                    </a>
+                                                </figure>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    </a>
+                                </figure>
+                            </div>
+                        {% endif %}
+                        {% if pub.mutimedia | length == 2 %}
+                            <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                                    <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                        <img src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 180px;height: 150px;margin-left: 7px" itemprop="thumbnail" alt="Image description" />
+                                                    </a>
+                                                </figure>
+                                            </td>
+                                            <td>
+                                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                                    <a href="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                        <img src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 180px;height: 150px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
+                                                    </a>
+                                                </figure>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    </a>
+                                </figure>
+                            </div>
+                        {% endif %}
+                        {% if pub.mutimedia | length == 1 %}
+                            <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                          <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                              <img src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 270px;height: 230px;margin-left: 50px" itemprop="thumbnail" alt="Image description" />
+                                          </a>
+                                </figure>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+</section>
+
+<!--***** PHOTOSWIPE *****-->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip">
+                </div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- PhotoSwipe JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js"></script>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="copyright-box">
+                    <p class="copyright">&copy; Copyright <strong>FINDME</strong>. All Rights Reserved</p>
+                    <div class="credits">
+                        Developed by <a href="https://bootstrapmade.com/">GALACTECH TEAM</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    var initPhotoSwipeFromDOM = function(gallerySelector) {
+        // parse slide data (url, title, size ...) from DOM elements
+        // (children of gallerySelector)
+        var parseThumbnailElements = function(el) {
+            var thumbElements = el.childNodes,
+                numNodes = thumbElements.length,
+                items = [],
+                figureEl,
+                linkEl,
+                size,
+                item;
+            for(var i = 0; i < numNodes; i++) {
+                figureEl = thumbElements[i]; // <figure> element
+                // include only element nodes
+                if(figureEl.nodeType !== 1) {
+                    continue;
+                }
+                linkEl = figureEl.children[0]; // <a> element
+                size = linkEl.getAttribute('data-size').split('x');
+                // create slide object
+                item = {
+                    src: linkEl.getAttribute('href'),
+                    w: parseInt(size[0], 10),
+                    h: parseInt(size[1], 10)
+                };
+                if(figureEl.children.length > 1) {
+                    // <figcaption> content
+                    item.title = figureEl.children[1].innerHTML;
+                }
+                if(linkEl.children.length > 0) {
+                    // <img> thumbnail element, retrieving thumbnail url
+                    item.msrc = linkEl.children[0].getAttribute('src');
+                }
+                item.el = figureEl; // save link to element for getThumbBoundsFn
+                items.push(item);
+            }
+            return items;
+        };
+        // find nearest parent element
+        var closest = function closest(el, fn) {
+            return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+        };
+        // triggers when user clicks on thumbnail
+        var onThumbnailsClick = function(e) {
+            e = e || window.event;
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
+            var eTarget = e.target || e.srcElement;
+            // find root element of slide
+            var clickedListItem = closest(eTarget, function(el) {
+                return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+            });
+            if(!clickedListItem) {
+                return;
+            }
+            // find index of clicked item by looping through all child nodes
+            // alternatively, you may define index via data- attribute
+            var clickedGallery = clickedListItem.parentNode,
+                childNodes = clickedListItem.parentNode.childNodes,
+                numChildNodes = childNodes.length,
+                nodeIndex = 0,
+                index;
+            for (var i = 0; i < numChildNodes; i++) {
+                if(childNodes[i].nodeType !== 1) {
+                    continue;
+                }
+
+                if(childNodes[i] === clickedListItem) {
+                    index = nodeIndex;
+                    break;
+                }
+                nodeIndex++;
+            }
+            if(index >= 0) {
+                // open PhotoSwipe if valid index found
+                openPhotoSwipe( index, clickedGallery );
+            }
+            return false;
+        };
+        // parse picture index and gallery index from URL (#&pid=1&gid=2)
+        var photoswipeParseHash = function() {
+            var hash = window.location.hash.substring(1),
+                params = {};
+
+            if(hash.length < 5) {
+                return params;
+            }
+            var vars = hash.split('&');
+            for (var i = 0; i < vars.length; i++) {
+                if(!vars[i]) {
+                    continue;
+                }
+                var pair = vars[i].split('=');
+                if(pair.length < 2) {
+                    continue;
+                }
+                params[pair[0]] = pair[1];
+            }
+            if(params.gid) {
+                params.gid = parseInt(params.gid, 10);
+            }
+            return params;
+        };
+        var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+            var pswpElement = document.querySelectorAll('.pswp')[0],
+                gallery,
+                options,
+                items;
+            items = parseThumbnailElements(galleryElement);
+            // define options (if needed)
+            options = {
+                // define gallery index (for URL)
+                galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+                getThumbBoundsFn: function(index) {
+                    // See Options -> getThumbBoundsFn section of documentation for more info
+                    var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                        pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                        rect = thumbnail.getBoundingClientRect();
+                    return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+                }
+            };
+            // PhotoSwipe opened from URL
+            if(fromURL) {
+                if(options.galleryPIDs) {
+                    // parse real index when custom PIDs are used
+                    // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                    for(var j = 0; j < items.length; j++) {
+                        if(items[j].pid === index) {
+                            options.index = j;
+                            break;
+                        }
+                    }
+                } else {
+                    // in URL indexes start from 1
+                    options.index = parseInt(index, 10) - 1;
+                }
+            } else {
+                options.index = parseInt(index, 10);
+            }
+            // exit if index not found
+            if( isNaN(options.index) ) {
+                return;
+            }
+            if(disableAnimation) {
+                options.showAnimationDuration = 0;
+            }
+            // Pass data to PhotoSwipe and initialize it
+            gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+            gallery.init();
+        };
+        // loop through all gallery elements and bind events
+        var galleryElements = document.querySelectorAll( gallerySelector );
+        for(var i = 0, l = galleryElements.length; i < l; i++) {
+            galleryElements[i].setAttribute('data-pswp-uid', i+1);
+            galleryElements[i].onclick = onThumbnailsClick;
+        }
+        // Parse URL and open gallery if it contains #&pid=3&gid=1
+        var hashData = photoswipeParseHash();
+        if(hashData.pid && hashData.gid) {
+            openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
+        }
+    };
+    // execute above function
+    initPhotoSwipeFromDOM('.my-gallery');
+</script>

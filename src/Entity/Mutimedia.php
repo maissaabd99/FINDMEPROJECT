@@ -18,12 +18,13 @@ class Mutimedia
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string|null
+     * @ORM\Column(type="string", length=255, nullable=true,name="source")
      */
     private $source;
 
     /**
-     * @ORM\ManyToOne(targetEntity=publication::class, inversedBy="mutimedia")
+     * @ORM\ManyToOne(targetEntity=Publication::class, inversedBy="mutimedia")
      */
     private $publication;
 
@@ -54,5 +55,10 @@ class Mutimedia
         $this->publication = $publication;
 
         return $this;
+    }
+
+    public function __toString():string
+    {
+        return $this->getSource();
     }
 }

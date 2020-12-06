@@ -25,7 +25,7 @@ class Publication
     private $date_pub;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=200, nullable=true)
      */
     private $contenu_pub;
 
@@ -40,7 +40,7 @@ class Publication
     private $commentaires;
 
     /**
-     * @ORM\ManyToOne(targetEntity=utilisateur::class, inversedBy="publications")
+     * @ORM\ManyToOne(targetEntity=Utilisateur::class, inversedBy="publications")
      */
     private $utilisateur;
 
@@ -57,7 +57,7 @@ class Publication
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $non;
+    private $nom;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -65,7 +65,7 @@ class Publication
     private $age;
 
     /**
-     * @ORM\Column(type="string", length=1, nullable=true)
+     * @ORM\Column(type="string", length=10, nullable=true)
      */
     private $sexe;
 
@@ -205,14 +205,14 @@ class Publication
         return $this;
     }
 
-    public function getNon(): ?string
+    public function getNom(): ?string
     {
-        return $this->non;
+        return $this->nom;
     }
 
-    public function setNon(?string $non): self
+    public function setNom(?string $nom): self
     {
-        $this->non = $non;
+        $this->nom = $nom;
 
         return $this;
     }
@@ -252,4 +252,10 @@ class Publication
 
         return $this;
     }
+
+//    public function __toString():string
+//    {
+//        return $this->getMutimedia();
+//    }
+
 }
