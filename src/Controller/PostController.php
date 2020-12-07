@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Commentaire;
 use App\Entity\Mutimedia;
 use App\Entity\Photo;
 use App\Entity\Publication;
+use App\Form\CommentaireFormType;
 use App\Form\MultimediaType;
 use App\Form\PhotoType;
 use App\Form\PublicationType;
@@ -75,6 +77,8 @@ class PostController extends AbstractController
         }
         return $this->render('publication/newpublication.html.twig', ['form' => $form->createView(),'form1' => $form1->createView()]);
     }
+
+
 }
 
 

@@ -115,6 +115,8 @@
                               </a>
                             </figure>
                         </div>
+                            <button class="button button-a  button-rouded">  {{ pub.commentaires|length }}</button>
+
                         {% endif %}
                         {% if pub.mutimedia | length == 3 %}
                             <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
@@ -150,6 +152,8 @@
                                     </a>
                                 </figure>
                             </div>
+                            <button  class="button button-a  button-rouded">  {{ pub.commentaires|length }}</button>
+
                         {% endif %}
                         {% if pub.mutimedia | length == 2 %}
                             <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
@@ -175,6 +179,9 @@
                                     </a>
                                 </figure>
                             </div>
+                            <button  class="button button-a  button-rouded">  {{ pub.commentaires|length }}</button>
+
+
                         {% endif %}
                         {% if pub.mutimedia | length == 1 %}
                             <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
@@ -185,12 +192,20 @@
                                           </a>
                                 </figure>
                             </div>
+                            <button style="margin-top: 50%" class="button button-a  button-rouded">  {{ pub.commentaires|length }}</button>
                         {% endif %}
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            <a href="{{ path('comment',{'id':pub.id}) }}">
+                <button  class="button button-a  button-rouded">commentaire</button></a>
+                  </div>
+       {% endfor %}
+
     </div>
+
+
+
+
     </div>
 </section>
 
