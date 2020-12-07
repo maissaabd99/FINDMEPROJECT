@@ -2,29 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92df9c96-8da9-4608-a3bb-423f8fa79920" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/images/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/publication/newpublication.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FINDMEPROJECT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FINDMEPROJECT.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_46__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_46__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_47__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_47__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_54__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_54__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_46_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_46__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_47_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_47__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_54_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_54__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201202221308.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Mutimedia.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Mutimedia.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Publication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Publication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/MultimediaType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MultimediaType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PublicationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PublicationType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/publication/newpublication.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publication/newpublication.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/publication/post.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publication/post.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/activate.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/activate.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/templateregistration.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/templateregistration.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,6 +196,7 @@
       <workItem from="1606071538230" duration="4869000" />
       <workItem from="1606150192917" duration="3922000" />
       <workItem from="1606476628574" duration="4757000" />
+      <workItem from="1607367936027" duration="5318000" />
     </task>
     <task id="LOCAL-00001" summary="Home page">
       <created>1606155003620</created>
@@ -233,6 +220,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="40" key="#HTTP_Proxy/0.0.1366.728@0.0.1366.728" timestamp="1607269884387" />
+    <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607370581789">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1607370581789" />
     <state x="449" y="168" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607076977682">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -261,6 +252,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1606155013607" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1607367934820">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1607367934820" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1607081435966">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

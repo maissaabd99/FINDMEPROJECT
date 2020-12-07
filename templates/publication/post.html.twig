@@ -33,6 +33,16 @@
     .carte{
         display:inline-block;
     }
+
+    .inner{
+        overflow:hidden;
+    }
+    .inner img{
+        transition: all 1s ease;
+    }
+    .inner:hover img{
+        transform: scale(1.2);
+    }
 </style>
 <!-- Photoswipe CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
@@ -42,7 +52,16 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="title-box text-center">
-                    <a href="{{ path('newpost') }}"><button class="button button-a button-big button-rouded">Créer un nouvelle publication</button></a>
+                    {% if app.user %}
+                       <a href="{{ path('newpost') }}"><button class="button button-a button-big button-rouded">Créer un nouvelle publication</button></a>
+                    {% else %}
+                        <button onclick="alertinfo();" class="button button-a button-big button-rouded">Créer un nouvelle publication</button>
+                        <script>
+                            function alertinfo(){
+                                alert('Vous dever connectez à votre compte pour pouvoir créer une publication');
+                            }
+                        </script>
+                    {% endif %}
                     <p class="subtitle-a">
                     </p>
                     <div class="line-mf">
@@ -59,11 +78,11 @@
 </section>
 
   <section>
-    <div  class=" container" style="margin-left: 170px">
+    <div  class=" container" style="margin-left: 140px">
     <div class="col align-content-center animated fadeIn carte ">
         {% for pub in pubs %}
         <div class=" shadow p-3 mb-5 bg-white rounded card center  ml-5 col-lg-5 carte"  style="width: 200rem;height: 530px">
-                <p style="margin-left: 10px;font-size: small;color: lightsteelblue">Publié par {{ app.user.nom}} {{ app.user.prenom}}</p>
+                <p style="margin-left: 10px;font-size: small;color: lightsteelblue">Publié par {{pub.utilisateur.nom |upper}} {{ pub.utilisateur.prenom}}</p>
                 <p style="margin-left: 285px;font-size: small;color: lightsteelblue;margin-top: -35px;">le {{ pub.datePub |date('d/m/Y H:i') }}</p>
                 <div class="card-body" style="margin-top: -20px">
                     <h5 > {{ pub.nom }}</h5>
@@ -83,14 +102,14 @@
                                           <td>
                                               <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                                               <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                 <img src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 170px;height: 100px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
+                                                 <img class="inner" src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 170px;height: 100px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
                                               </a>
                                               </figure>
                                           </td>
                                           <td>
                                               <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                                               <a href="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                   <img src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 160px;height: 100px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
+                                                   <img class="inner"  src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 160px;height: 100px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
                                               </a>
                                               </figure>
                                           </td>
@@ -99,14 +118,14 @@
                                           <td >
                                               <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                                               <a href="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                  <img src="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" style="width: 160px;height: 100px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
+                                                  <img class="inner"  src="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" style="width: 169px;height: 100px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
                                               </a>
                                               </figure>
                                           </td>
-                                          <td colspan="2">
+                                          <td>
                                               <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                                                   <a href="{{ asset('uploads/images/'~pub.mutimedia[3].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                      <img src="{{ asset('uploads/images/'~pub.mutimedia[3].source) }}" style="width: 160px;height: 100px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
+                                                      <img class="inner"  src="{{ asset('uploads/images/'~pub.mutimedia[3].source) }}" style="width: 160px;height: 100px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
                                                   </a>
                                               </figure>
                                           </td>
@@ -125,14 +144,14 @@
                                             <td>
                                                 <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                                                     <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                        <img src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 170px;height: 100px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
+                                                        <img class="inner"  src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 170px;height: 100px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
                                                     </a>
                                                 </figure>
                                             </td>
                                             <td>
                                                 <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                                                     <a href="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                        <img src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 160px;height: 100px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
+                                                        <img class="inner"  src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 160px;height: 100px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
                                                     </a>
                                                 </figure>
                                             </td>
@@ -141,7 +160,7 @@
                                             <td colspan="2">
                                                 <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                                                     <a href="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                        <img src="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" style="width: 250px;height: 120px;margin-left: 60px" itemprop="thumbnail" alt="Image description" />
+                                                        <img class="inner"  src="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" style="width: 250px;height: 120px;margin-left: 60px" itemprop="thumbnail" alt="Image description" />
                                                     </a>
                                                 </figure>
                                             </td>
@@ -159,14 +178,18 @@
                                             <td>
                                                 <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                                                     <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                        <img src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 180px;height: 150px;margin-left: 7px" itemprop="thumbnail" alt="Image description" />
+                                                        <div class="inner">
+                                                           <img class="inner"  src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 180px;height: 150px;margin-left: 7px" itemprop="thumbnail" alt="Image description" />
+                                                        </div>
                                                     </a>
                                                 </figure>
                                             </td>
                                             <td>
                                                 <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                                                     <a href="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                        <img src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 180px;height: 150px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
+                                                        <div class="inner">
+                                                           <img   src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 180px;height: 150px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
+                                                        </div>
                                                     </a>
                                                 </figure>
                                             </td>
