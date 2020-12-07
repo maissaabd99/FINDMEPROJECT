@@ -29,6 +29,7 @@ class PostController extends AbstractController
         return $this->render('publication/post.html.twig',['pubs'=>$pubs]);
     }
 
+
     /**
      * @Route("/post/new", name="newpost")
      * @param Request $request
@@ -74,6 +75,26 @@ class PostController extends AbstractController
             return $this->redirectToRoute("post");
         }
         return $this->render('publication/newpublication.html.twig', ['form' => $form->createView(),'form1' => $form1->createView()]);
+    }
+    /**
+     * @Route("/post/{id}/edit", name="editpost")
+     * @param Request $request
+     * @param UtilisateurRepository $repository
+     * @return Response
+     * @throws Exception
+     */
+    public function editpublication($id,Publication $publication,Mutimedia $multimedia, Request $request,UtilisateurRepository $repository): Response
+    {
+        $form1= $this->createForm(PublicationType::class,$publication);
+        $form1->handleRequest($request);
+        $form= $this->createForm(MultimediaType::class,$multimedia);
+        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
+
+
+        return $this->render('publication/editpublication.html.twig', ['id'=>$publication->getId()  , 'form' => $form->createView(),'form1' => $form1->createView()]);
     }
 }
 

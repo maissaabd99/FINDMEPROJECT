@@ -71,7 +71,11 @@
                     <h6 >{{ pub.age}} ans </h6>
                     <div style="height: 100px;position: relative">
                        <span style="font-size: small">{{ pub.contenuPub}}</span>
+
                     </div>
+                    {% if pub.utilisateur.id==app.user.id %}
+                    <a class="nav-link js-scroll" href="{{ path('editpost',{'id':pub.id}) }}">edit</a>
+                    {% endif %}
                     <div class="inner">
                         <!--***** GALLERY *****-->
                         {% if pub.mutimedia | length == 4 %}
