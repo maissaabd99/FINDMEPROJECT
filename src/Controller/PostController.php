@@ -31,6 +31,7 @@ class PostController extends AbstractController
         return $this->render('publication/post.html.twig',['pubs'=>$pubs]);
     }
 
+
     /**
      * @Route("/post/new", name="newpost")
      * @param Request $request
@@ -77,7 +78,6 @@ class PostController extends AbstractController
         }
         return $this->render('publication/newpublication.html.twig', ['form' => $form->createView(),'form1' => $form1->createView()]);
     }
-
 
 }
 
