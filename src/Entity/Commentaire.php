@@ -33,12 +33,12 @@ class Commentaire
     private $utilisateur;
 
     /**
-     * @ORM\ManyToOne(targetEntity=publication::class, inversedBy="commentaires")
+     * @ORM\ManyToOne(targetEntity=Publication::class, inversedBy="commentaires")
      */
     private $publication;
 
     /**
-     * @ORM\ManyToOne(targetEntity=administration::class, inversedBy="commentaires")
+     * @ORM\ManyToOne(targetEntity=Administration::class, inversedBy="commentaires")
      */
     private $admin;
 

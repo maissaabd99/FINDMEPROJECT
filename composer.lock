@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a320f676e63c23114e442ccbf010aa9",
+    "content-hash": "6fdee4338fc85d826e4686932c07dd24",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1210,13 +1210,70 @@
                 "validation",
                 "validator"
             ],
-            "funding": [
+            "time": "2020-11-14T15:56:27+00:00"
+        },
+        {
+            "name": "lcobucci/jwt",
+            "version": "3.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lcobucci/jwt.git",
+                "reference": "17cb82dd625ccb17c74bf8f38563d3b260306483"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/17cb82dd625ccb17c74bf8f38563d3b260306483",
+                "reference": "17cb82dd625ccb17c74bf8f38563d3b260306483",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-openssl": "*",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "~1.5",
+                "phpmd/phpmd": "~2.2",
+                "phpunit/php-invoker": "~1.1",
+                "phpunit/phpunit": "^5.7 || ^7.3",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "suggest": {
+                "lcobucci/clock": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lcobucci\\JWT\\": "src"
+                },
+                "files": [
+                    "compat/class-aliases.php",
+                    "compat/json-exception-polyfill.php",
+                    "compat/lcobucci-clock-polyfill.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
                 {
-                    "url": "https://github.com/egulias",
-                    "type": "github"
+                    "name": "Luís Otávio Cobucci Oblonczyk",
+                    "email": "lcobucci@gmail.com",
+                    "role": "Developer"
                 }
             ],
-            "time": "2020-11-14T15:56:27+00:00"
+            "description": "A simple library to work with JSON Web Token and JSON Web Signature",
+            "keywords": [
+                "JWS",
+                "jwt"
+            ],
+            "time": "2020-12-03T13:43:45+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2974,20 +3031,6 @@
             ],
             "description": "Symfony Google Mailer Bridge",
             "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-10-24T11:50:19+00:00"
         },
         {
@@ -3438,17 +3481,145 @@
             "time": "2020-10-24T11:50:19+00:00"
         },
         {
-            "name": "symfony/messenger",
-            "version": "v4.4.16",
+            "name": "symfony/mercure",
+            "version": "v0.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/messenger.git",
-                "reference": "56676069f979835c06eb1b30c51deb4255cf6fcf"
+                "url": "https://github.com/symfony/mercure.git",
+                "reference": "e4d96d15b41ed4f86e0674d5c9ef366985bf6b1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/messenger/zipball/56676069f979835c06eb1b30c51deb4255cf6fcf",
-                "reference": "56676069f979835c06eb1b30c51deb4255cf6fcf",
+                "url": "https://api.github.com/repos/symfony/mercure/zipball/e4d96d15b41ed4f86e0674d5c9ef366985bf6b1c",
+                "reference": "e4d96d15b41ed4f86e0674d5c9ef366985bf6b1c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "symfony/http-client": "^4.3.5|^5.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^4.2.4|^5.0",
+                "symfony/stopwatch": "^4.3|^5.0"
+            },
+            "suggest": {
+                "symfony/stopwatch": "Integration with the profiler performances"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.3.x-dev"
+                },
+                "thanks": {
+                    "name": "dunglas/mercure",
+                    "url": "https://github.com/dunglas/mercure"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Mercure\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kévin Dunglas",
+                    "email": "dunglas@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Mercure Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "mercure",
+                "push",
+                "sse",
+                "updates"
+            ],
+            "time": "2020-11-26T20:15:59+00:00"
+        },
+        {
+            "name": "symfony/mercure-bundle",
+            "version": "v0.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/mercure-bundle.git",
+                "reference": "a18bba0144eb1637cfcf6037587584decede5878"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/mercure-bundle/zipball/a18bba0144eb1637cfcf6037587584decede5878",
+                "reference": "a18bba0144eb1637cfcf6037587584decede5878",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "symfony/config": "^4.4|^5.0",
+                "symfony/dependency-injection": "^4.4|^5.0",
+                "symfony/http-kernel": "^4.4|^5.0",
+                "symfony/mercure": "^0.3|^0.4"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^4.3.7|^5.0",
+                "symfony/stopwatch": "^4.3.7|^5.0",
+                "symfony/var-dumper": "^4.3.7|^5.0"
+            },
+            "suggest": {
+                "symfony/messenger": "To use the Messenger integration"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bundle\\MercureBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kévin Dunglas",
+                    "email": "dunglas@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony MercureBundle",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "mercure",
+                "push",
+                "sse",
+                "updates"
+            ],
+            "time": "2020-11-26T20:52:26+00:00"
+        },
+        {
+            "name": "symfony/messenger",
+            "version": "v4.4.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/messenger.git",
+                "reference": "7ada2e6bd895a1ede6f39f4872b0d4e5944da5f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/messenger/zipball/7ada2e6bd895a1ede6f39f4872b0d4e5944da5f1",
+                "reference": "7ada2e6bd895a1ede6f39f4872b0d4e5944da5f1",
                 "shasum": ""
             },
             "require": {
@@ -3505,7 +3676,7 @@
             ],
             "description": "Symfony Messenger Component",
             "homepage": "https://symfony.com",
-            "time": "2020-10-26T20:47:51+00:00"
+            "time": "2020-11-28T22:57:36+00:00"
         },
         {
             "name": "symfony/mime",
@@ -6120,20 +6291,6 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-09-07T11:33:47+00:00"
         },
         {
@@ -6259,20 +6416,6 @@
                 "generator",
                 "scaffold",
                 "scaffolding"
-            ],
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-11-25T17:19:22+00:00"
         },
@@ -6467,6 +6610,5 @@
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
