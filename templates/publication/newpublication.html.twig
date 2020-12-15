@@ -91,7 +91,7 @@
                     <div style="margin-left: 80px">
                         <label for="upload" class="btn btn-light m-0 rounded-pill px-4">
                             <i class="fa fa-cloud-upload mr-2 text-muted"></i>
-                            <small class="text-uppercase font-weight-bold text-muted">Choisir des photos</small>
+                            <small class="text-uppercase font-weight-bold text-muted">Choisir 4 photos</small>
                             <br>
                             <input type="file" name="files[]"  id="files" multiple="multiple" accept="image/jpg,image/png, image/jpeg" aria-valuemax="" required/>
 {#                            {{ form_start(form)}}#}
@@ -136,6 +136,14 @@
         //     $("#imageUploadForm").submit();
         // }
     });
+    var uploadField = document.getElementById("files");
+
+    uploadField.onchange = function() {
+        if(this.files[0].size > 307200){
+            alert("File is too big!");
+            this.value = "";
+        };
+    };
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
