@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92df9c96-8da9-4608-a3bb-423f8fa79920" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/FINDMEPROJECT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FINDMEPROJECT.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ChatController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ClientController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PublisherController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/chat/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/client/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/publisher/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201207184643.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Publication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Publication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/publication/newpublication.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publication/newpublication.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/publication/post.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publication/post.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/publication/singlepost.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publication/singlepost.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +218,9 @@
       <workItem from="1607795977725" duration="43000" />
       <workItem from="1607860978401" duration="7125000" />
       <workItem from="1607880490309" duration="17924000" />
-      <workItem from="1608058073904" duration="2556000" />
+      <workItem from="1608058073904" duration="3910000" />
+      <workItem from="1608151141819" duration="64060000" />
+      <workItem from="1608375049339" duration="38917000" />
     </task>
     <task id="LOCAL-00001" summary="Home page">
       <created>1606155003620</created>
@@ -228,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608059796139</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="lastpush-updtae">
+      <created>1608060699435</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608060699435</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +252,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Home page" />
     <MESSAGE value="last commit by mayssa" />
-    <option name="LAST_COMMIT_MESSAGE" value="last commit by mayssa" />
+    <MESSAGE value="lastpush-updtae" />
+    <option name="LAST_COMMIT_MESSAGE" value="lastpush-updtae" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="40" key="#HTTP_Proxy" timestamp="1607269884387">
@@ -252,18 +268,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="449" y="168" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1607076977682" />
-    <state x="476" y="81" key="#com.intellij.ide.util.MemberChooser" timestamp="1606480340135">
+    <state x="476" y="81" key="#com.intellij.ide.util.MemberChooser" timestamp="1608229788549">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="476" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1606480340135" />
-    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607077109200">
+    <state x="476" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1608229788549" />
+    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608218497186">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1607077109200" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1608059791973">
+    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1608218497186" />
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1608060696557">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608059791973" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608060696557" />
     <state x="446" y="230" key="Github.CreatePullRequestDialog" timestamp="1606076584021">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -280,10 +296,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1606155013607" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1608058609792">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1608375058087">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1608058609792" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1608375058087" />
     <state x="492" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608059875336">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -296,5 +312,16 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1607952514347" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/templates/publication/localisatio.html.twig</url>
+          <line>31</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

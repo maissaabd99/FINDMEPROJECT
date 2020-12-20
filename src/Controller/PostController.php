@@ -4,19 +4,15 @@ namespace App\Controller;
 
 use App\Entity\Commentaire;
 use App\Entity\Mutimedia;
-use App\Entity\Photo;
 use App\Entity\Publication;
-use App\Form\CommentaireFormType;
 use App\Form\CommentType;
 use App\Form\MultimediaType;
-use App\Form\PhotoType;
 use App\Form\PublicationType;
 use App\Repository\CommentaireRepository;
 use App\Repository\PublicationRepository;
 use App\Repository\UtilisateurRepository;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -38,20 +34,7 @@ class PostController extends AbstractController
         return $this->render('publication/post.html.twig',['pubs'=>$pubs,'form'=>$form->createView()]);
     }
 
-    /**
-     * @Route("/post/{id}", name="singlepost")
-     * @param PublicationRepository $repository
-     * @param Request $request
-     * @return Response
-     */
-    public function singlepost($id,PublicationRepository $repository,Request $request): Response
-    {
-        $pub= $repository->find($id);
-        $commentaire= new Commentaire();
-        $forms=[];
-        $form= $this->createForm(CommentType::class,$commentaire);
-        return $this->render('publication/singlepost.html.twig',['pub'=>$pub,'form'=>$form->createView()]);
-    }
+
 
     /**
      * @Route("/post/new", name="newpost")
@@ -71,17 +54,19 @@ class PostController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         if (($form1->isSubmitted())) {
 //            $files[] = $_FILES['files'];
+            $a= $request->request->get('markers1');
+            $b= $request->request->get('markers2');
+//            dd($a,$b);
             $files []= $request->files->all();
-//            dd($files);
+            $pub->setLongitude($a);
+            $pub->setLatitude($b);
             $pub->setDatePub(new \DateTime('now'));
             $pub->setUtilisateur($repository->find($this->getUser()->getId()));
             $em->persist($pub);
             $em->flush();
             foreach ($files as $key => $value) {
                 foreach ($value as $cle => $v) {
-//                    dd($v);
                     foreach ($v as $c=>$file){
-//                        dd($file);
                         $p = new Mutimedia();
                         $filename = $file->getClientOriginalName();
 //                        dd($filename);
@@ -141,6 +126,29 @@ class PostController extends AbstractController
         $em->flush();
         return $this->json(['code'=>200,'message'=>'commentaire supprimé !'],200);
     }
+
+    /**
+     * @Route("/post/{id}", name="singlepost")
+     * @param $id
+     * @param PublicationRepository $repository
+     * @param Request $request
+     * @return Response
+     * @throws Exception
+
+     */
+    public function singlepost($id,PublicationRepository $repository,Request $request): Response
+    {
+        $pub= $repository->find($id);
+        $commentaire= new Commentaire();
+        $forms=[];
+        $form= $this->createForm(CommentType::class,$commentaire);
+
+        return $this->render('publication/singlepost.html.twig',['pub'=>$pub,'form'=>$form->createView()]);
+    }
+
+
+
+
 
 }
 
