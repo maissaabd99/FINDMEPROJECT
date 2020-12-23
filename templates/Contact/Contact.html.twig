@@ -152,9 +152,13 @@
             }
         }
         #frame .content .message-input {
+            /*position: absolute;*/
+            /*bottom: 0;*/
+            /*padding:40px;*/
+            /*width: 100%;*/
+            /*z-index: 99;*/
             position: absolute;
             bottom: 0;
-            padding:40px;
             width: 100%;
             z-index: 99;
         }
@@ -166,7 +170,7 @@
             float: left;
             border: none;
             width: calc(100% - 90px);
-            padding: 20px;
+            padding: 11px 32px 10px 8px;
             font-size: 15px;
             color: #32465a;
         }
@@ -277,30 +281,24 @@ Website: http://emilcarlsson.se/
                 {% endfor %}
             </ul>
         </div>
+        <div class="message-input">
+            <div class="wrap">
+                <form method="post" action="{{ path('newmsg') }}" id="form" name="form" class="msgform">
+                    <input type="text" required placeholder="Ecrire votre message..."  name="msg" class="msg" id="msg"   style="margin-top: 60px"/>
+                    {#            <i class="fa fa-paperclip attachment" aria-hidden="true"></i>#}
+                    {#                style="margin-left: 230px;width: 800px;padding: 15px;border: none;"#}
+                    {#            <button class="submit" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>#}
+                </form>
+            </div>
+        </div>
     </div>
+
 </div>
-<div class="message-input">
-    <div class="wrap">
-        <form method="post" action="{{ path('newmsg') }}" id="form" name="form" class="msgform">
-            <input type="text" required placeholder="Ecrire votre message..."  name="msg" class="msg" id="msg" style="margin-left: 200px;width: 800px;padding: 15px;border: none;"/>
-{#            <i class="fa fa-paperclip attachment" aria-hidden="true"></i>#}
-{#            <button class="submit" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>#}
-        </form>
-    </div>
-</div>
+
 
 {#<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>#}
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-
-
-    // function scrolbottom(){
-    //     var elem = document.getElementById('loadmsg');
-    //     elem.scrollTop = elem.scrollHeight;
-    // }
-
-            // when scroll to bottom of the page
-
 
     var chatWindow = document.getElementById('loadmsg');
     console.log(chatWindow);
@@ -312,26 +310,14 @@ Website: http://emilcarlsson.se/
     };
 
     function autoRefresh_div() {
-        $('#loadmsg').scrollTop($('#loadmsg')[0].scrollHeight);
-        $("#loadmsg").load(document.URL +  ' #loadmsg');
 
-        // scrolbottom();
-        // $(".loadmsg").animate({ scrollTop: $(this).height() }, "fast");
-        // var box = document.getElementById('loadmsg');
-        // box.scrollTop = box.scrollHeight;
+        $("#anchor").load(document.URL +  ' #anchor',function () {
+            var box = document.getElementById('loadmsg');
+            box.scrollTop = box.scrollHeight;
+        });
     }
 
-    // chatWindow.addEventListener('load', function(){
-    //     // var chatWindow = document.querySelector('#loadmsg');
-    //     chatWindow.scrollTop = chatWindow.scrollHeight;
-    // });
-
-    setInterval('autoRefresh_div()', 9000);
-    // window.setInterval(function() {
-    //     autoRefresh_div();
-    //     scrolbottom();
-    //
-    // }, 2000);
+    setInterval('autoRefresh_div()', 8000);
 
     function addMsg(event){
         event.preventDefault();
@@ -344,9 +330,14 @@ Website: http://emilcarlsson.se/
             console.log(response.data);
             $('<li class="sent"><h6 style="font-size: 10px">Vous</h6><p>' + response.data.message + '</p><br><span style="font-size: 10px;">'+response.data.date+'</span>\n' + '</li>').appendTo($('.messages ul'));
             $('.message-input input').val(null);
-            $("#loadmsg").animate({ scrollTop: $(document).height() }, "fast");
-            span.textContent = response.data.message;
-            $('#loadmsg').load(document.URL +  ' #loadmsg');
+            // $("#loadmsg").animate({ scrollBottom: $(document).height() }, 1000);
+            $('#anchor').load(document.URL +  ' #anchor',function () {
+                var box = document.getElementById('loadmsg');
+                box.scrollTop = box.scrollHeight;
+            });
+
+            // span.textContent = response.data.message;
+
         }).catch(function(error){
             console.log(error)
         })

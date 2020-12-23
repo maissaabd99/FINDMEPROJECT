@@ -80,6 +80,27 @@ class Publication
     private $longitude;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $archiver;
+
+    /**
+     * @return mixed
+     */
+    public function getArchiver()
+    {
+        return $this->archiver;
+    }
+
+    /**
+     * @param mixed $archiver
+     */
+    public function setArchiver($archiver): void
+    {
+        $this->archiver = $archiver;
+    }
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $latitude;

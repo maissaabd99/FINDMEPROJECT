@@ -58,7 +58,7 @@ class Utilisateur implements UserInterface,\Serializable
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $bloque;
 

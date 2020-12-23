@@ -55,9 +55,48 @@ class Administration
     private $adresse;
 
     /**
-     * @ORM\Column(type="string", length=1, nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    private $bloque;
+    private $bloquer;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * @param mixed $updated_at
+     */
+    public function setUpdatedAt($updated_at): void
+    {
+        $this->updated_at = $updated_at;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getBloquer()
+    {
+        return $this->bloquer;
+    }
+
+    /**
+     * @param mixed $bloquer
+     */
+    public function setBloquer($bloquer): void
+    {
+        $this->bloquer = $bloquer;
+    }
 
     /**
      * @ORM\OneToMany(targetEntity=Message::class, mappedBy="admin")
@@ -74,11 +113,17 @@ class Administration
      */
     private $publications;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Conversation::class, mappedBy="admin")
+     */
+    private $conversations;
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
         $this->commentaires = new ArrayCollection();
         $this->publications = new ArrayCollection();
+        $this->conversations = new ArrayCollection();
     }
 
 
@@ -171,17 +216,7 @@ class Administration
         return $this;
     }
 
-    public function getBloque(): ?string
-    {
-        return $this->bloque;
-    }
 
-    public function setBloque(?string $bloque): self
-    {
-        $this->bloque = $bloque;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Message[]
@@ -267,6 +302,36 @@ class Administration
             // set the owning side to null (unless already changed)
             if ($publication->getAdmin() === $this) {
                 $publication->setAdmin(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Conversation[]
+     */
+    public function getConversations(): Collection
+    {
+        return $this->conversations;
+    }
+
+    public function addConversation(Conversation $conversation): self
+    {
+        if (!$this->conversations->contains($conversation)) {
+            $this->conversations[] = $conversation;
+            $conversation->setAdmin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConversation(Conversation $conversation): self
+    {
+        if ($this->conversations->removeElement($conversation)) {
+            // set the owning side to null (unless already changed)
+            if ($conversation->getAdmin() === $this) {
+                $conversation->setAdmin(null);
             }
         }
 

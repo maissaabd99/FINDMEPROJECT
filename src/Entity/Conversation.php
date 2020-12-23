@@ -29,6 +29,11 @@ class Conversation
      */
     private $messages;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Administration::class, inversedBy="conversations")
+     */
+    private $admin;
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
@@ -77,6 +82,18 @@ class Conversation
                 $message->setConversation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAdmin(): ?Administration
+    {
+        return $this->admin;
+    }
+
+    public function setAdmin(?Administration $admin): self
+    {
+        $this->admin = $admin;
 
         return $this;
     }

@@ -28,16 +28,12 @@
     .carte{
         /*display:inline-block;*/
     }
-
-    /*.inner{*/
-    /*    overflow:hidden;*/
-    /*}*/
-    /*.inner img{*/
-    /*    transition: all 1s ease;*/
-    /*}*/
-    /*.inner:hover img{*/
-    /*    transform: scale(1.2);*/
-    /*}*/
+    .spanclass{
+        font-size: medium;
+        font-weight: bold;
+        margin-left: 15px;
+        top: 40px
+    }
     body {
         font-family: "Lato", sans-serif;
     }
@@ -81,11 +77,50 @@
         .sidenav {padding-top: 15px;}
         .sidenav a {font-size: 18px;}
     }
+       .map1 {
+           margin-left: 20px;
+           width: 92%;
+           height: 500px;
+       }
 </style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+{#<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>#}
+{#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">#}
+{#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">#}
+{#<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">#}
+{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>#}
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdnbu2dKsKShoO4zqET8uFYY6EV4KapxE&callback=initMap&libraries=&v=weekly" defer></script>
+
+<script>
+    let map;
+    let markers = [];
+    // var infowindow = new google.maps.InfoWindow();
+    function initMap() {
+        tab2 = document.querySelectorAll("div.test");
+        long = tab2[0].childNodes;
+        console.log(tab2[0].childNodes);
+        console.log(long[1],long[3]);
+        var latit = Number(tab2[0].childNodes[3].value);
+        var long =Number(tab2[0].childNodes[1].value);
+        const haightAshbury = { lat: long, lng: latit };
+        map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 12,
+            center: haightAshbury,
+            draggable: true
+
+        });
+        new google.maps.Marker({
+            position: haightAshbury,
+            map,
+            title: "Localisation",
+        });
+    }
+</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-
-
+<meta name="google" content="notranslate">
 <!-- Photoswipe CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
@@ -147,6 +182,12 @@
                     <div style="height: 100px;position: relative">
                         <span style="font-size: small">{{ pub.contenuPub}}</span>
                     </div>
+                    <div id="map" class="map1" style="height: 200px"></div>
+                    <div class="test">
+                        <input id="tableau1" type="hidden" value="{{ pub.longitude }}"/>
+                        <input id="tableau2" type="hidden" value="{{ pub.latitude }}"/>
+                    </div>
+                    <br>
                     <div class="inner">
                         <!--***** GALLERY *****-->
                         {% if pub.mutimedia | length == 4 %}
@@ -281,16 +322,28 @@
                         </div-->
                     </form>
                 {% else %}
-                <button onclick="afficher()"><p style="margin-left:520px"><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p></button>
+                    <p style="margin-top: -10px;margin-left:520px " ><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p>
+                    {#                <button><p style="margin-left:520px"><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p></button>#}
                 {% endif %}
                 <div id="comments">
                 {% for comm in pub.commentaires %}
                     <div style="background-color: #F8F9F9;padding: 1px;border-radius: 20px" id="add" class="add">
                         <p>
-                            <span id="part1" style="font-size: medium;font-weight: bold;margin-left: 15px;top: 40px" >{{ comm.contenuComnt }}</span>
-                          {% if comm.utilisateur.id == app.user.id %}
-                            <a class="delcom" href="{{ path('deletecomment', {'id': comm.id}) }}"> <span style="float: right;margin-right: 10px;margin-top: 5px" title="supprimer"> <i class="fas fa-times"></i></span></a>
+                            {% if app.user %}
+                                {% if  comm.utilisateur.id == app.user.id %}
+                                     <span onclick="spanSwitch(this.id)" id="{{ comm.id }}" class="spanclass" >{{ comm.contenuComnt }}</span>
+                                {% else %}
+                                     <span  id="{{ comm.id }}" class="spanclass" >{{ comm.contenuComnt }}</span>
+                                {% endif %}
+                                {% else %}
+                                    <span  id="{{ comm.id }}" class="spanclass" >{{ comm.contenuComnt }}</span>
+                            {% endif %}
+                            {% if app.user %}
+                                {% if comm.utilisateur.id == app.user.id %}
+                            <a class="delcom"  id="cmt" onclick="deletef({{ comm.id }})"> <span style="float: right;margin-right: 10px;margin-top: 5px" title="supprimer"> <i class="far fa-trash-alt"></i></span></a>
+{#                            <a class="editable"><span style="float: right;margin-right: 15px;margin-top: 5px" title="Modifier"><i class="far fa-edit"></i></span></a>#}
                           {% endif %}
+                            {% endif %}
                         </p>
                         <p id="part2" style="font-size: small;margin-left: 310px;margin-top: 10px">Ajouté par <span style="font-weight: bold" >{{ comm.utilisateur.nom |upper }} {{ comm.utilisateur.prenom }} </span>le {{ comm.dateComnt|date('d/m/Y H:i') }}</p>
                     </div>
@@ -305,6 +358,118 @@
 {% block javascripts %}
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+
+    function spanSwitch(id) {
+
+        let txt = document.getElementById(id).textContent;
+        console.log('span : ' +document.getElementById(id));
+        var element = $('#'+id);
+        console.log(element.val().length);
+        var input=$("<input>", {val:$(element).text(), type: "text",width:'500px'});
+        element.hide();
+        element.after(input);
+        // console.log(element);
+        input.select();
+
+        $(input).on('blur',function () {
+             ajaxcall(id,input.val(),input,element);
+             // $('#'+id).load(document.URL +  ' #'+id);
+        });
+    }
+function ajaxcall(id,contenu,input,element){
+    $.ajax({
+            url: "{{ path('editcomment')}}",
+            data: {d:id,c:contenu},
+            type: 'POST',
+            dataType: 'json',
+            success: function(data) {
+                console.log(data.msg);
+                // console.log(result);
+                input.hide();
+                element.text(input.val());
+                element.show();
+            },
+        // error: function (exception) {
+        //     alert('Exception:' + exception);
+        // }
+        }
+
+    )
+}
+function spanReset(id) {
+
+}
+
+
+
+
+        // function covertSpan(id){
+            // $(".editable").each(function () {
+        //     let span = $('#' + id);
+        //     // let input = $("<input>", {val: $(span).text(), type: "text"});
+        //         $('#'+id).on('click', function () {
+        //             var input = $('<input />', {
+        //                 'type': 'text',
+        //                 'value': $(span).html()
+        //             });
+        //
+        //             // $('#'+id).replaceWith(input);
+        //             $(this).parent().append(input);
+        //             $(this).remove();
+        //             input.select();
+        //         });
+        //
+        //         $(this).on('blur',function () {
+        //             console.log("gggggggg");
+        //             var span=$("<span>", {text:$(this).val()});
+        //             $(this).parent().append($('<span />').html($(this).val()));
+        //
+        //             // $(this).replaceWith(span);
+        //             // $(this).remove();
+        //         });
+        //
+        //     // });
+        // }
+
+
+            // let span = $('#' + id);
+            // let input = $("<input>", {val: $(span).text(), type: "text"});
+            // $(".editable").each(function () {
+            //         // if(document.getElementById(id).nodeName==="SPAN"){
+            //         $(span).replaceWith(input);
+            //         input.select();
+            //     // });
+            //     // }
+            //     // else if (document.getElementById(id).nodeName==="INPUT"){
+            //         console.log('input: '+input.text());
+            //         $(input).on('blur', function () {
+            //             var span=$("<span>", {text:$(this).val(),class:"spanclass"});
+            //             $('#'+id).replaceWith(span);
+            //
+            //         });
+            //     // }
+            //
+            // });
+
+
+        function deletef(d){
+            console.log(d);
+            $.ajax({
+                    url: "{{ path('deletecomment')}}",
+                    type: 'POST',
+                    data: {d:d},
+                    dataType: 'json',
+                    success: function(da){
+                        // if(da.test===true){
+                        $('.add').load(document.URL +  ' .add');
+                        $('#count').load(document.URL +  ' #count');
+                        $('#comments').load(document.URL +  ' #comments');
+                        console.log("cmnt sup")
+                        // }
+                    }
+                }
+            )
+        }
 
         function onClickBtnLike(event){
             event.preventDefault();
@@ -327,27 +492,28 @@
             link.addEventListener('submit',onClickBtnLike)
         });
 
-      async function deletecomment(event){
-            event.preventDefault();
-            const url = this.href;
-            console.log(url);
-            var count = this.querySelector('.count');
-           await axios.put(url).then(function(response){
-                $('#count').load(document.URL +  ' #count');
-                console.log(response.data);
-                $('#comments').load(document.URL +  ' #comments');
-               response.data=null;
+      // async function deletecomment(event){
+      //       event.preventDefault();
+      //       const url = this.href;
+      //       console.log(url);
+      //       var count = this.querySelector('.count');
+      //      await axios.put(url).then(function(response){
+      //           $('#count').load(document.URL +  ' #count');
+      //           console.log(response.data);
+      //           $('#comments').load(document.URL +  ' #comments');
+      //          response.data=null;
+      //
+      //      }).catch(function(response){
+      //          $('#count').load(document.URL +  ' #count');
+      //          console.log(response.data);
+      //          $('#comments').load(document.URL +  ' #comments');
+      //           console.log(response)
+      //       })
+      //   }
+      //   document.querySelectorAll('a.delcom').forEach(function (link) {
+      //       link.addEventListener('click',deletecomment)
+      //   });
 
-           }).catch(function(response){
-               $('#count').load(document.URL +  ' #count');
-               console.log(response.data);
-               $('#comments').load(document.URL +  ' #comments');
-                console.log(response)
-            })
-        }
-        document.querySelectorAll('a.delcom').forEach(function (link) {
-            link.addEventListener('click',deletecomment)
-        });
         </script>
 {% endblock %}
 

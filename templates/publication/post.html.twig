@@ -1,8 +1,5 @@
 {% include 'header.html.twig' %}
-<!DOCTYPE html>
-<html lang="en">
 <br><br>
-<head>
 <style>
        .my-gallery {
            width: 100%;
@@ -71,98 +68,70 @@
         .sidenav a {font-size: 18px;}
     }
 
-       #floating-panel {
-           /*position: absolute;*/
-           /*top: 10px;*/
-           /*left: 25%;*/
-           z-index: 5;
-           background-color: #fff;
-           padding: 5px;
-           border: 1px solid #999;
-           text-align: center;
-           font-family: "Roboto", "sans-serif";
-           line-height: 30px;
-           /*padding-left: 10px;*/
-       }
+       /*#floating-panel {*/
+       /*    !*position: absolute;*!*/
+       /*    !*top: 10px;*!*/
+       /*    !*left: 25%;*!*/
+       /*    z-index: 5;*/
+       /*    background-color: #fff;*/
+       /*    padding: 5px;*/
+       /*    border: 1px solid #999;*/
+       /*    text-align: center;*/
+       /*    font-family: "Roboto", "sans-serif";*/
+       /*    line-height: 30px;*/
+       /*    !*padding-left: 10px;*!*/
+       /*}*/
        .map1 {
-           height: 100%;
+           margin-left: 20px;
+           width: 92%;
+           height: 500px;
        }
-       #map {
-           height: 100%;
-       }
+    .test{
+
+    }
 </style>
     <title>shyy</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdnbu2dKsKShoO4zqET8uFYY6EV4KapxE&callback=initMap&libraries=&v=weekly"
-            defer
-    ></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdnbu2dKsKShoO4zqET8uFYY6EV4KapxE&callback=initMap&libraries=&v=weekly" defer></script>
+{#{% include 'header.html.twig' %}#}
+{#<script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&extension=.js"></script>#}
     <script>
-        window.load=function(){
-            initMap();
-        };
-        let map;
-        let markers=[];
-        function initMap(listener) {
-            const haightAshbury = { lat: 37.2720905, lng: 9.8708565};
-            map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 10,
-                center: haightAshbury,
-                mapTypeId: "plan",
-            });
-            map.addListener("click", (event) => {
-                addMarker(event.latLng);
-            });
-        }
-        function addMarker(location) {
-            if(markers.length===1){
-                alert('Vous devez choisir un seule localisation !\nVous pouvez supprimer la localisation choisie par le bouton Delete Markers !');
-            }else{
-                if(markers.length===0){
-                    const marker = new google.maps.Marker({
-                        position: location,
-                        map: map,
-                    });
-                    markers.push(marker);
-                }
+        // $(document).ready(function() {
+            let map;
+            let markers = [];
+            function initMap() {
+            tab = document.querySelectorAll("div.map1");
+            tab2 = document.querySelectorAll("div.test");
+            long = tab2[0].childNodes;
+            console.log(tab2[0].childNodes);
+            console.log(long[1],long[3]);
+            for (let i = 0; i < tab.length; i++) {
+                var latit = Number(tab2[i].childNodes[3].value);
+                var long =Number(tab2[i].childNodes[1].value);
+                const haightAshbury = {lat:long ,lng:latit};
+                map = new google.maps.Map(document.getElementById(tab[i].id), {
+                    zoom: 12,
+                    center: haightAshbury,
+                    draggable: true
+                });
+                new google.maps.Marker({
+                    position: haightAshbury,
+                    map,
+                    title: "Localisation",
+                });
             }
-            // document.getElementById('tableau1').setAttribute("value",markers[0].position.lat());
-            // document.getElementById('tableau2').setAttribute("value",markers[0].position.lng());
-            // console.log(geocoder.reverseGeocodeCoordinate(markers[0].position));
-            // console.log(document.getElementById('tableau1'),document.getElementById('tableau2'));
-        }
-        // Sets the map on all markers in the array.
-        function setMapOnAll(map) {
-            for (let i = 0; i < markers.length; i++) {
-                markers[i].setMap(map);
-            }
-        }
-
-        // Removes the markers from the map, but keeps them in the array.
-        function clearMarkers() {
-            setMapOnAll(null);
-        }
-
-        // Shows any markers currently in the array.
-        function showMarkers() {
-            setMapOnAll(map);
-        }
-        // Deletes all markers in the array by removing references to them.
-        function deleteMarkers() {
-            clearMarkers();
-            markers = [];
         }
     </script>
-</head>
-<!-- Photoswipe CSS -->
-
 <body style="background-color: #E4F3F5">
-<div style="width: 500px;height: 500px" id="map"></div>
-
-<section id="work" class="portfolio-mf sect-pt4 route" >
+{#<div style="width: 500px;height: 500px" id="map"></div>#}
+<section id="work" class="portfolio-mf sect-pt4 route">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -197,44 +166,8 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // let map;
-        // let markers = [];
-        // // var geocoder= new google.maps.Geocoder();
-        // var maps = document.querySelectorAll('div.map1');
-        // var childs = document.querySelectorAll('div.test');
-        // console.log(childs[0]);
-        // console.log(maps);
-        // var map;
-        // var haightAshbury;
-
-
-        // function initMap() {
-        //     // for (let i = 0; i < maps.length; i++) {
-        //     //     map = null;
-        //     //     long = childs[i].childNodes;
-        //     //     console.log(long[1].textContent);
-        //     //     console.log(long[2].textContent);
-        //     //     haightAshbury = null;
-        //         const haightAshbury = {lat: 37.2720905, lng: 9.8708565};
-        //         map = new google.maps.Map(maps[i], {
-        //             zoom: 10,
-        //             center: haightAshbury,
-        //             mapTypeId: "plan"
-        //         });
-        //         console.log(map,haightAshbury);
-        //
-
-            // Adds a marker to the map and push to the array.
-        // }
-        // maps=document.querySelectorAll('div.map1');
-        // long = maps[1].childNodes;
-        // console.log(long[1].textContent);
-        // document.querySelectorAll('map1');
-    </script>
-
         </section>
+<<<<<<< Updated upstream
     <div  class=" container" >
 
     <div class="animated fadeIn carte " style="width: 64rem;" id="divcard">
@@ -245,6 +178,9 @@
 
 
         <div id="map"></div>
+=======
+    <div  class=" container" style="margin-left: 280px">
+>>>>>>> Stashed changes
     <div class="animated fadeIn carte " style="width: 64rem;" id="divcard">
         {% for pub in pubs %}
             <div class=" shadow p-3 mb-5 bg-white rounded card   ml-5 col-lg-8 carte"  style="border-radius: 20%">
@@ -264,28 +200,18 @@
 {#                        <input onclick="deleteMarkers();" type="button" value="Delete Markers" />#}
 {#                    </div>#}
 
-                    <div id="{{ pub.id }}" class="map1"></div>
+                    <div id="{{ pub.id }}" class="map1" style="height: 200px"></div>
                     <div class="test">
-                        <span id="tableau1">{{ pub.longitude }}</span>
-                        <span id="tableau2" >{{ pub.latitude }}</span>
-{#                        <script>#}
-
-{#                            console.log(document.getElementById({{ pub.id }}).valueOf());#}
-{#                            function initMap() {#}
-{#                                var map;#}
-{#                                var haightAshbury;#}
-{#                                haightAshbury = {lat: Number({{ pub.latitude }}), lng: Number({{ pub.longitude }})};#}
-{#                                map = new google.maps.Map(document.getElementById({{ pub.id }}).valueOf(), {#}
-{#                                  zoom: 10,#}
-{#                                  center: haightAshbury,#}
-{#                                  mapTypeId: "plan",#}
-{#                                });#}
-{#                            }#}
-{#                        </script>#}
+                        <input id="tableau1" type="hidden" value="{{ pub.longitude }}"/>
+                        <input id="tableau2" type="hidden" value="{{ pub.latitude }}"/>
                     </div>
+<<<<<<< Updated upstream
 
 
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+=======
+                    <br>
+>>>>>>> Stashed changes
 {#                    {% if pub.utilisateur.id==app.user.id %}#}
 {#                    <a class="nav-link js-scroll" href="{{ path('editpost',{'id':pub.id}) }}">edit</a>#}
 {#                    {% endif %}#}
@@ -412,7 +338,6 @@
 {#                <a href="{{ path('newcomment',{'id':pub.id}) }}"> <button type="submit" class="button rounded" style="padding: 12px;margin-top:-4px">submit</button></a>#}
                 <a href="{{ path('singlepost',{'id':pub.id}) }}" > <p style="margin-top: -40px;margin-left:520px " ><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p></a>
                     <br>
-
                 <div style="background-color: #F6FDFE;padding: 1px;border-radius: 20px">
                     <span style="font-size: medium;font-weight: bold;margin-left: 10px" id="11" class="c1"></span>
                     <p class="msg" id="msg" style="font-size: small;margin-left: 10px"></p>
@@ -433,6 +358,22 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+        // let map;
+        // let markers = [];
+        // function initMap() {
+        //     tab = document.querySelectorAll("div.map1");
+        //     console.log(tab[1].id);
+        //     for (let i = 0; i < tab.length; i++) {
+        //         const haightAshbury = {lat: 37.2720905, lng: 9.8708565};
+        //         map = new google.maps.Map(document.getElementById(tab[i].id), {
+        //             zoom: 10,
+        //             center: haightAshbury,
+        //             draggable: true
+        //         });
+        //     }
+        // }
+
+
         function onClickBtnLike(event){
             event.preventDefault();
             const url = this.action;

@@ -1,7 +1,9 @@
 {
   "name": "findme",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^4.5.3"
+  },
   "devDependencies": {
     "axios": "^0.21.0"
   }

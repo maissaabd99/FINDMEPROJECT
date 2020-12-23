@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Repository\CommentaireRepository;
 use App\Repository\PublicationRepository;
 use App\Repository\UtilisateurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -60,5 +62,26 @@ class HomeController extends AbstractController
     {
         return $this->render('publication/localisatio.html.twig');
     }
+
+    /**
+     * @Route("/post/editcomment", name="editcomment")
+     * @param CommentaireRepository $rep
+     * @return Response
+     */
+
+    public function editcomment(CommentaireRepository $rep,Request $request):Response
+    {
+        $idc= $request->request->get('d');
+        $contenu= $request->request->get('c');
+        $comment =$rep->find($idc);
+        $comment->setContenuComnt($contenu);
+        $em= $this->getDoctrine()->getManager();
+//        $em->persist($comment);
+        $em->flush();
+        return $this->json(['msg'=>'commentaire modifié !']);
+    }
+
+
+
 
 }

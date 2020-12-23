@@ -14,10 +14,17 @@ use App\Repository\PublicationRepository;
 use App\Repository\UtilisateurRepository;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+<<<<<<< Updated upstream
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+=======
+use Symfony\Component\Validator\Constraints\Json;
+
+>>>>>>> Stashed changes
 class PostController extends AbstractController
 {
     /**
@@ -271,12 +278,19 @@ class PostController extends AbstractController
         return $this->render('publication/repost.html.twig', ['pub1'=>$pub1,'form' => $form->createView(),'form1' => $form1->createView()]);
     }
     /**
+<<<<<<< Updated upstream
      * @Route("/post/solved/{id}", name="Solve")
      * @param Request $request
      * @param UtilisateurRepository $repository
+=======
+     * @Route("/post/deletecomment", name="deletecomment")
+     * @param Request $request
+     * @param CommentaireRepository $rep
+>>>>>>> Stashed changes
      * @return Response
      * @throws Exception
      */
+<<<<<<< Updated upstream
     public function Solvedpublication($id,Request $request,UtilisateurRepository $repository,PublicationRepository $rep,MutimediaRepository $multi): Response
     {
 //        $pub2= $repository->find($id);
@@ -288,6 +302,12 @@ class PostController extends AbstractController
 
         $pub1 = $rep->find($id);
         $pub1->setStatut("R");
+=======
+    public function deletecomment(Request $request,CommentaireRepository $rep):Response{
+        $idc= $_POST['d'];
+//        dd($idc);
+        $comment =$rep->find($idc);
+>>>>>>> Stashed changes
         $em= $this->getDoctrine()->getManager();
 
         $em->flush();
@@ -308,12 +328,9 @@ class PostController extends AbstractController
     {
         $pub= $repository->find($id);
         $commentaire= new Commentaire();
-        $forms=[];
         $form= $this->createForm(CommentType::class,$commentaire);
-
         return $this->render('publication/singlepost.html.twig',['pub'=>$pub,'form'=>$form->createView()]);
     }
-
 
 
 
