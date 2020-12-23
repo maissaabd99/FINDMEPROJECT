@@ -1,11 +1,9 @@
 {% include 'header.html.twig' %}
+<!DOCTYPE html>
+<html lang="en">
 <br><br>
+<head>
 <style>
-    $icon-font-path: '../fonts/';
-    // bower:scss
-    @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-    // endbower
-
        .my-gallery {
            width: 100%;
            float: left;
@@ -30,24 +28,9 @@
         padding-top: 50px;
         padding-bottom: 50px;
     }
-
-    .carte{
-        /*display:inline-block;*/
-    }
-
-    /*.inner{*/
-    /*    overflow:hidden;*/
-    /*}*/
-    /*.inner img{*/
-    /*    transition: all 1s ease;*/
-    /*}*/
-    /*.inner:hover img{*/
-    /*    transform: scale(1.2);*/
-    /*}*/
     body {
         font-family: "Lato", sans-serif;
     }
-
     .sidenav {
         height: 100%;
         width: 0px;
@@ -87,12 +70,98 @@
         .sidenav {padding-top: 15px;}
         .sidenav a {font-size: 18px;}
     }
-</style>
 
+       #floating-panel {
+           /*position: absolute;*/
+           /*top: 10px;*/
+           /*left: 25%;*/
+           z-index: 5;
+           background-color: #fff;
+           padding: 5px;
+           border: 1px solid #999;
+           text-align: center;
+           font-family: "Roboto", "sans-serif";
+           line-height: 30px;
+           /*padding-left: 10px;*/
+       }
+       .map1 {
+           height: 100%;
+       }
+       #map {
+           height: 100%;
+       }
+</style>
+    <title>shyy</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdnbu2dKsKShoO4zqET8uFYY6EV4KapxE&callback=initMap&libraries=&v=weekly"
+            defer
+    ></script>
+    <script>
+        window.load=function(){
+            initMap();
+        };
+        let map;
+        let markers=[];
+        function initMap(listener) {
+            const haightAshbury = { lat: 37.2720905, lng: 9.8708565};
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: haightAshbury,
+                mapTypeId: "plan",
+            });
+            map.addListener("click", (event) => {
+                addMarker(event.latLng);
+            });
+        }
+        function addMarker(location) {
+            if(markers.length===1){
+                alert('Vous devez choisir un seule localisation !\nVous pouvez supprimer la localisation choisie par le bouton Delete Markers !');
+            }else{
+                if(markers.length===0){
+                    const marker = new google.maps.Marker({
+                        position: location,
+                        map: map,
+                    });
+                    markers.push(marker);
+                }
+            }
+            // document.getElementById('tableau1').setAttribute("value",markers[0].position.lat());
+            // document.getElementById('tableau2').setAttribute("value",markers[0].position.lng());
+            // console.log(geocoder.reverseGeocodeCoordinate(markers[0].position));
+            // console.log(document.getElementById('tableau1'),document.getElementById('tableau2'));
+        }
+        // Sets the map on all markers in the array.
+        function setMapOnAll(map) {
+            for (let i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+
+        // Removes the markers from the map, but keeps them in the array.
+        function clearMarkers() {
+            setMapOnAll(null);
+        }
+
+        // Shows any markers currently in the array.
+        function showMarkers() {
+            setMapOnAll(map);
+        }
+        // Deletes all markers in the array by removing references to them.
+        function deleteMarkers() {
+            clearMarkers();
+            markers = [];
+        }
+    </script>
+</head>
 <!-- Photoswipe CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
+
 <body style="background-color: #E4F3F5">
+<div style="width: 500px;height: 500px" id="map"></div>
+
 <section id="work" class="portfolio-mf sect-pt4 route" >
     <div class="container">
         <div class="row">
@@ -100,32 +169,21 @@
                 <div class="alert alert-warning alert-dismissible fade show" role="alert" style="visibility: hidden" id="alert">
                      You should login to create a post !
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"  onclick="closediv()">
-                        <span aria-hidden="true" onclick="closediv()">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="title-box text-center">
                     {% if app.user %}
-                       <a href="{{ path('newpost') }}"><button class="button button-a button-big button-rouded">Créer un nouvelle publication</button></a>
+                       <a href="{{ path('newpost') }}"><button class="button button-a button-big button-rouded">Créer une nouvelle publication</button></a>
                     {% else %}
-                        <button onclick="alertinfo();" class="button button-a button-big button-rouded">Créer un nouvelle publication</button>
+                        <button onclick="alertinfo();" class="button button-a button-big button-rouded">Créer une nouvelle publication</button>
+                    {% endif %}
                         <script>
                             function alertinfo(){
-                                // if(document.getElementById('testdiv').style.visibility === 'visible'){
-                                //     document.getElementById('testdiv').style.visibility = 'hidden';
-                                // }
-                                    $('.alert').alert();
-                                // $(elem).show();
-                                    document.getElementById('alert').style.visibility = 'visible';
-                                // $('.alert').alert();
-                                // document.getElementById('testdiv').style.visibility = 'visible';
-                            }
-                            function closediv(){
-                                $().alert('dispose');
-                                document.getElementById('alert').style.visibility = 'hidden';
-                                // $('.alert').alert();
+                                alert("Vous devez connecter à votre compte pour pouvoir créer un post ");
                             }
                         </script>
-                    {% endif %}
+
                     <p class="subtitle-a">
                     </p>
                     <div class="line-mf">
@@ -139,27 +197,44 @@
             </div>
         </div>
     </div>
-</section>
 
-  <section style="margin-left: 20%" id="main">
-      <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="#">About</a>
-      </div>
+    <script>
+        // let map;
+        // let markers = [];
+        // // var geocoder= new google.maps.Geocoder();
+        // var maps = document.querySelectorAll('div.map1');
+        // var childs = document.querySelectorAll('div.test');
+        // console.log(childs[0]);
+        // console.log(maps);
+        // var map;
+        // var haightAshbury;
 
-          <span style="font-size:30px;cursor:pointer;margin-left:20px;margin-top: -100px " onclick="openNav()">&#9776; open</span>
-      <script>
-          function openNav() {
-              document.getElementById("mySidenav").style.width = "250px";
-              document.getElementById("main").style.marginLeft = "350px";
-              // document.getElementById("divcard").style.width = "65rem";
-          }
-          function closeNav() {
-              document.getElementById("mySidenav").style.width = "0";
-              document.getElementById("main").style.marginLeft= "20%";
-              // document.getElementById("divcard").style.width = "64rem";
-          }
-      </script>
+
+        // function initMap() {
+        //     // for (let i = 0; i < maps.length; i++) {
+        //     //     map = null;
+        //     //     long = childs[i].childNodes;
+        //     //     console.log(long[1].textContent);
+        //     //     console.log(long[2].textContent);
+        //     //     haightAshbury = null;
+        //         const haightAshbury = {lat: 37.2720905, lng: 9.8708565};
+        //         map = new google.maps.Map(maps[i], {
+        //             zoom: 10,
+        //             center: haightAshbury,
+        //             mapTypeId: "plan"
+        //         });
+        //         console.log(map,haightAshbury);
+        //
+
+            // Adds a marker to the map and push to the array.
+        // }
+        // maps=document.querySelectorAll('div.map1');
+        // long = maps[1].childNodes;
+        // console.log(long[1].textContent);
+        // document.querySelectorAll('map1');
+    </script>
+
+        </section>
     <div  class=" container" >
 
     <div class="animated fadeIn carte " style="width: 64rem;" id="divcard">
@@ -169,7 +244,10 @@
         <div class=" shadow p-3 mb-5 bg-white rounded card   ml-5 col-lg-8 carte"  style="border-radius: 20%">
 
 
-
+        <div id="map"></div>
+    <div class="animated fadeIn carte " style="width: 64rem;" id="divcard">
+        {% for pub in pubs %}
+            <div class=" shadow p-3 mb-5 bg-white rounded card   ml-5 col-lg-8 carte"  style="border-radius: 20%">
 
                 <p style="margin-left: 10px;font-size: small;color: lightsteelblue">Publié par {{pub.utilisateur.nom |upper}} {{ pub.utilisateur.prenom}}</p>
                 <p style="margin-left: 505px;font-size: small;color: lightsteelblue;margin-top: -35px;">le {{ pub.datePub |date('d/m/Y H:i') }}</p>
@@ -179,13 +257,42 @@
                     <h6 >{{ pub.age}} ans </h6>
                     <div style="height: 100px;position: relative">
                        <span style="font-size: small">{{ pub.contenuPub}}</span>
-
                     </div>
+{#                    <div id="floating-panel">#}
+{#                        #}{#                    <input onclick="clearMarkers();" type="button" value="Hide Markers" />#}
+{#                        #}{#                    <input onclick="showMarkers();" type="button" value="Show All Markers" />#}
+{#                        <input onclick="deleteMarkers();" type="button" value="Delete Markers" />#}
+{#                    </div>#}
+
+                    <div id="{{ pub.id }}" class="map1"></div>
+                    <div class="test">
+                        <span id="tableau1">{{ pub.longitude }}</span>
+                        <span id="tableau2" >{{ pub.latitude }}</span>
+{#                        <script>#}
+
+{#                            console.log(document.getElementById({{ pub.id }}).valueOf());#}
+{#                            function initMap() {#}
+{#                                var map;#}
+{#                                var haightAshbury;#}
+{#                                haightAshbury = {lat: Number({{ pub.latitude }}), lng: Number({{ pub.longitude }})};#}
+{#                                map = new google.maps.Map(document.getElementById({{ pub.id }}).valueOf(), {#}
+{#                                  zoom: 10,#}
+{#                                  center: haightAshbury,#}
+{#                                  mapTypeId: "plan",#}
+{#                                });#}
+{#                            }#}
+{#                        </script>#}
+                    </div>
+
+
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{#                    {% if pub.utilisateur.id==app.user.id %}#}
+{#                    <a class="nav-link js-scroll" href="{{ path('editpost',{'id':pub.id}) }}">edit</a>#}
+{#                    {% endif %}#}
 
                     <div class="inner">
                         <!--***** GALLERY *****-->
                         {% if pub.mutimedia | length == 4 %}
-{#                       {% for img in pub.mutimedia %}#}
                         <div class="my-gallery" itemscope >
                               <figure itemprop="associatedMedia" itemscope >
                                   <table>
@@ -224,8 +331,6 @@
                                   </table>
                             </figure>
                         </div>
-{#                            <button class="button button-a  button-rouded">  {{ pub.commentaires|length }}</button>#}
-
                         {% endif %}
                         {% if pub.mutimedia | length == 3 %}
                             <div class="my-gallery" itemscope>
@@ -259,8 +364,6 @@
                                     </table>
                                 </figure>
                             </div>
-{#                            <button  class="button button-a  button-rouded">  {{ pub.commentaires|length }}</button>#}
-
                         {% endif %}
                         {% if pub.mutimedia | length == 2 %}
                             <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
@@ -322,10 +425,12 @@
         </div>
             {% endif %}
        {% endfor %}
+
     </div>
+
     </div>
-</section>
-{% block javascripts %}
+
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         function onClickBtnLike(event){
@@ -343,9 +448,8 @@
                 console.log(response.data);
                 count.textContent = response.data.nbrcomments;
                 span.textContent = response.data.message;
-
                 {% if app.user %}
-                    com.textContent = " Added by {{ app.user.nom |upper }} {{ app.user.prenom }}"+"  at " + "  " + response.data.dateajout;
+                    com.textContent = " Ajouté par {{ app.user.nom |upper }} {{ app.user.prenom }}"+"  à " + "  " + response.data.dateajout;
                 {% endif %}
                $('#aa').value="";
                 // $('#msg').load(document.URL +  ' #msg');
@@ -357,7 +461,6 @@
             link.addEventListener('submit',onClickBtnLike)
         })
     </script>
-{% endblock %}
 <!--***** PHOTOSWIPE *****-->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="pswp__bg"></div>

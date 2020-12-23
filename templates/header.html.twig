@@ -39,7 +39,7 @@
             {% if app.user %}
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll active" href="{{ path('home') }}">Home</a>
+                    <a class="nav-link js-scroll active" href="{{ path('home') }}">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll" href="{{ path('post') }}">Toutes les publications</a>
@@ -49,6 +49,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll" href="#contact">Contact</a>
+
+                    <a class="nav-link js-scroll" href="{{path('contact')}}">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll" href="{{ path('modifiercompte') }}">Compte</a>
@@ -56,12 +58,11 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll" href="{{ path('app_logout') }}">déconnexion</a>
                 </li>
-
             </ul>
             {% else %}
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll active" href="{{ path('home') }}">Home</a>
+                    <a class="nav-link js-scroll active" href="{{ path('home') }}">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll" href="{{ path('post') }}">Toutes les publications</a>
@@ -75,9 +76,9 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll" href="{{ path('app_login') }}">connexion</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll" href="#contact">Contact</a>
-                </li>
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link js-scroll" href="#contact">Contact</a>#}
+{#                </li>#}
             </ul>
             {% endif %}
         </div>

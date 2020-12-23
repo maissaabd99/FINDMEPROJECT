@@ -117,5 +117,7 @@
     <orderEntry type="library" name="photoswipe" level="application" />
     <orderEntry type="library" name="default-skin" level="application" />
     <orderEntry type="library" name="photoswipe-ui-default" level="application" />
+    <orderEntry type="library" name="reset" level="application" />
+    <orderEntry type="library" name="hoy3lrg" level="application" />
   </component>
 </module>

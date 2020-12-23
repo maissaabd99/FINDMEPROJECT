@@ -106,20 +106,22 @@
                         <button onclick="alertinfo();" class="button button-a button-big button-rouded">Créer un nouvelle publication</button>
                         <script>
                             function alertinfo(){
+                                alert("Vous devez connecter à votre compte pour pouvoir créer un post ");
+
                                 // if(document.getElementById('testdiv').style.visibility === 'visible'){
                                 //     document.getElementById('testdiv').style.visibility = 'hidden';
                                 // }
-                                $('.alert').alert();
+                                // $('.alert').alert();
                                 // $(elem).show();
-                                document.getElementById('alert').style.visibility = 'visible';
+                                // document.getElementById('alert').style.visibility = 'visible';
                                 // $('.alert').alert();
                                 // document.getElementById('testdiv').style.visibility = 'visible';
                             }
-                            function closediv(){
-                                $().alert('dispose');
-                                document.getElementById('alert').style.visibility = 'hidden';
-                                // $('.alert').alert();
-                            }
+                            // function closediv(){
+                            //     $().alert('dispose');
+                            //     document.getElementById('alert').style.visibility = 'hidden';
+                            //     // $('.alert').alert();
+                            // }
                         </script>
                     {% endif %}
                     <p class="subtitle-a">
@@ -134,7 +136,7 @@
 <section style="margin-left: 20%" id="main">
 <div  class=" container" >
     <div class="animated fadeIn carte " style="width: 64rem;" id="divcard">
-
+      {%  if pub!=null %}
             <div class=" shadow p-3 mb-5 bg-white rounded card   ml-5 col-lg-8 carte"  style="border-radius: 20%">
                 <p style="margin-left: 10px;font-size: small;color: lightsteelblue">Publié par {{pub.utilisateur.nom |upper}} {{ pub.utilisateur.prenom}}</p>
                 <p style="margin-left: 505px;font-size: small;color: lightsteelblue;margin-top: -35px;">le {{ pub.datePub |date('d/m/Y H:i') }}</p>
@@ -298,6 +300,7 @@
             </div>
     </div>
 </div>
+    {% endif %}
 </section>
 {% block javascripts %}
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -313,7 +316,6 @@
                 $('#count').load(document.URL +  ' #count');
                 console.log(response.data);
                 $('#add').load(document.URL +  ' #add');
-
                 $('#comments').load(document.URL +  ' #comments');
                 $('#aa').value="";
                 response.data=null;
@@ -325,8 +327,6 @@
             link.addEventListener('submit',onClickBtnLike)
         });
 
-    </script>
-    <script>
       async function deletecomment(event){
             event.preventDefault();
             const url = this.href;
@@ -349,7 +349,6 @@
             link.addEventListener('click',deletecomment)
         });
         </script>
-
 {% endblock %}
 
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

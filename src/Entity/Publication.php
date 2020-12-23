@@ -74,6 +74,16 @@ class Publication
      */
     private $localisation;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $longitude;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $latitude;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
@@ -257,5 +267,32 @@ class Publication
 //    {
 //        return $this->getMutimedia();
 //    }
+
+public function getLongitude(): ?string
+{
+    return $this->longitude;
+}
+
+public function setLongitude(?string $longitude): self
+{
+    $this->longitude = $longitude;
+
+    return $this;
+}
+
+public function getLatitude(): ?string
+{
+    return $this->latitude;
+}
+
+public function setLatitude(?string $latitude): self
+{
+    $this->latitude = $latitude;
+
+    return $this;
+}
+
+
+
 
 }

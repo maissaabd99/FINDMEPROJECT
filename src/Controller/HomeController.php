@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\PublicationRepository;
 use App\Repository\UtilisateurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,4 +48,17 @@ class HomeController extends AbstractController
 //        dd($x,$a);
         return $this->render('registration/activate.html.twig');
     }
+
+
+
+    /**
+     * @Route("/post/test", name="test")
+     * @return Response
+
+     */
+    public function single(): Response
+    {
+        return $this->render('publication/localisatio.html.twig');
+    }
+
 }
