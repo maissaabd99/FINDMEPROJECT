@@ -1,10 +1,10 @@
 {% include 'header.html.twig' %}
 <br><br>
 <style>
-       .my-gallery {
-           width: 100%;
-           float: left;
-       }
+    .my-gallery {
+        width: 100%;
+        float: left;
+    }
     .my-gallery img {
         width: 100%;
         height: auto;
@@ -68,29 +68,29 @@
         .sidenav a {font-size: 18px;}
     }
 
-       /*#floating-panel {*/
-       /*    !*position: absolute;*!*/
-       /*    !*top: 10px;*!*/
-       /*    !*left: 25%;*!*/
-       /*    z-index: 5;*/
-       /*    background-color: #fff;*/
-       /*    padding: 5px;*/
-       /*    border: 1px solid #999;*/
-       /*    text-align: center;*/
-       /*    font-family: "Roboto", "sans-serif";*/
-       /*    line-height: 30px;*/
-       /*    !*padding-left: 10px;*!*/
-       /*}*/
-       .map1 {
-           margin-left: 20px;
-           width: 92%;
-           height: 500px;
-       }
+    /*#floating-panel {*/
+    /*    !*position: absolute;*!*/
+    /*    !*top: 10px;*!*/
+    /*    !*left: 25%;*!*/
+    /*    z-index: 5;*/
+    /*    background-color: #fff;*/
+    /*    padding: 5px;*/
+    /*    border: 1px solid #999;*/
+    /*    text-align: center;*/
+    /*    font-family: "Roboto", "sans-serif";*/
+    /*    line-height: 30px;*/
+    /*    !*padding-left: 10px;*!*/
+    /*}*/
+    .map1 {
+        margin-left: 20px;
+        width: 92%;
+        height: 500px;
+    }
     .test{
 
     }
 </style>
-    <title>shyy</title>
+<title>shyy</title>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -102,33 +102,33 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdnbu2dKsKShoO4zqET8uFYY6EV4KapxE&callback=initMap&libraries=&v=weekly" defer></script>
 {#{% include 'header.html.twig' %}#}
 {#<script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&extension=.js"></script>#}
-    <script>
-        // $(document).ready(function() {
-            let map;
-            let markers = [];
-            function initMap() {
-            tab = document.querySelectorAll("div.map1");
-            tab2 = document.querySelectorAll("div.test");
-            long = tab2[0].childNodes;
-            console.log(tab2[0].childNodes);
-            console.log(long[1],long[3]);
-            for (let i = 0; i < tab.length; i++) {
-                var latit = Number(tab2[i].childNodes[3].value);
-                var long =Number(tab2[i].childNodes[1].value);
-                const haightAshbury = {lat:long ,lng:latit};
-                map = new google.maps.Map(document.getElementById(tab[i].id), {
-                    zoom: 12,
-                    center: haightAshbury,
-                    draggable: true
-                });
-                new google.maps.Marker({
-                    position: haightAshbury,
-                    map,
-                    title: "Localisation",
-                });
-            }
+<script>
+    // $(document).ready(function() {
+    let map;
+    let markers = [];
+    function initMap() {
+        tab = document.querySelectorAll("div.map1");
+        tab2 = document.querySelectorAll("div.test");
+        long = tab2[0].childNodes;
+        console.log(tab2[0].childNodes);
+        console.log(long[1],long[3]);
+        for (let i = 0; i < tab.length; i++) {
+            var latit = Number(tab2[i].childNodes[3].value);
+            var long =Number(tab2[i].childNodes[1].value);
+            const haightAshbury = {lat:long ,lng:latit};
+            map = new google.maps.Map(document.getElementById(tab[i].id), {
+                zoom: 12,
+                center: haightAshbury,
+                draggable: true
+            });
+            new google.maps.Marker({
+                position: haightAshbury,
+                map,
+                title: "Localisation",
+            });
         }
-    </script>
+    }
+</script>
 <body style="background-color: #E4F3F5">
 {#<div style="width: 500px;height: 500px" id="map"></div>#}
 <section id="work" class="portfolio-mf sect-pt4 route">
@@ -136,22 +136,22 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="alert alert-warning alert-dismissible fade show" role="alert" style="visibility: hidden" id="alert">
-                     You should login to create a post !
+                    You should login to create a post !
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"  onclick="closediv()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="title-box text-center">
                     {% if app.user %}
-                       <a href="{{ path('newpost') }}"><button class="button button-a button-big button-rouded">Créer une nouvelle publication</button></a>
+                        <a href="{{ path('newpost') }}"><button class="button button-a button-big button-rouded">Créer une nouvelle publication</button></a>
                     {% else %}
                         <button onclick="alertinfo();" class="button button-a button-big button-rouded">Créer une nouvelle publication</button>
                     {% endif %}
-                        <script>
-                            function alertinfo(){
-                                alert("Vous devez connecter à votre compte pour pouvoir créer un post ");
-                            }
-                        </script>
+                    <script>
+                        function alertinfo(){
+                            alert("Vous devez connecter à votre compte pour pouvoir créer un post ");
+                        }
+                    </script>
 
                     <p class="subtitle-a">
                     </p>
@@ -166,242 +166,220 @@
             </div>
         </div>
     </div>
-        </section>
-<<<<<<< Updated upstream
-    <div  class=" container" >
-
+</section>
+<div  class=" container"  style="margin-left: 280px">
     <div class="animated fadeIn carte " style="width: 64rem;" id="divcard">
         {% for pub in pubs %}
             {% if pub.statut !="R" %}
+                <div class=" shadow p-3 mb-5 bg-white rounded card   ml-5 col-lg-8 carte"  style="border-radius: 20%">
+                    {#    <div  class=" container">#}
+                    {#>>>>>>> Stashed changes#}
+                    {#    <div class="animated fadeIn carte " style="width: 64rem;" id="divcard">#}
+                    {#        {% for pub in pubs %}#}
+                    {#            <div class=" shadow p-3 mb-5 bg-white rounded card   ml-5 col-lg-8 carte"  style="border-radius: 20%">#}
 
-        <div class=" shadow p-3 mb-5 bg-white rounded card   ml-5 col-lg-8 carte"  style="border-radius: 20%">
-
-
-        <div id="map"></div>
-=======
-    <div  class=" container" style="margin-left: 280px">
->>>>>>> Stashed changes
-    <div class="animated fadeIn carte " style="width: 64rem;" id="divcard">
-        {% for pub in pubs %}
-            <div class=" shadow p-3 mb-5 bg-white rounded card   ml-5 col-lg-8 carte"  style="border-radius: 20%">
-
-                <p style="margin-left: 10px;font-size: small;color: lightsteelblue">Publié par {{pub.utilisateur.nom |upper}} {{ pub.utilisateur.prenom}}</p>
-                <p style="margin-left: 505px;font-size: small;color: lightsteelblue;margin-top: -35px;">le {{ pub.datePub |date('d/m/Y H:i') }}</p>
-                <div class="card-body" style="margin-top: -20px">
-                    <h5 > {{ pub.nom }}</h5>
-                    <h6 >{{ pub.sexe}}</h6>
-                    <h6 >{{ pub.age}} ans </h6>
-                    <div style="height: 100px;position: relative">
-                       <span style="font-size: small">{{ pub.contenuPub}}</span>
-                    </div>
-{#                    <div id="floating-panel">#}
-{#                        #}{#                    <input onclick="clearMarkers();" type="button" value="Hide Markers" />#}
-{#                        #}{#                    <input onclick="showMarkers();" type="button" value="Show All Markers" />#}
-{#                        <input onclick="deleteMarkers();" type="button" value="Delete Markers" />#}
-{#                    </div>#}
-
-                    <div id="{{ pub.id }}" class="map1" style="height: 200px"></div>
-                    <div class="test">
-                        <input id="tableau1" type="hidden" value="{{ pub.longitude }}"/>
-                        <input id="tableau2" type="hidden" value="{{ pub.latitude }}"/>
-                    </div>
-<<<<<<< Updated upstream
-
-
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-=======
-                    <br>
->>>>>>> Stashed changes
-{#                    {% if pub.utilisateur.id==app.user.id %}#}
-{#                    <a class="nav-link js-scroll" href="{{ path('editpost',{'id':pub.id}) }}">edit</a>#}
-{#                    {% endif %}#}
-
-                    <div class="inner">
-                        <!--***** GALLERY *****-->
-                        {% if pub.mutimedia | length == 4 %}
-                        <div class="my-gallery" itemscope >
-                              <figure itemprop="associatedMedia" itemscope >
-                                  <table>
-                                      <tr>
-                                          <td>
-                                              <figure itemprop="associatedMedia" itemscope >
-                                              <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                 <img class="inner rounded" src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 280px;height: 200px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
-                                              </a>
-                                              </figure>
-                                          </td>
-                                          <td>
-                                              <figure itemprop="associatedMedia" itemscope >
-                                              <a href="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                   <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 280px;height: 200px;margin-left: 150px" itemprop="thumbnail" alt="Image description" />
-                                              </a>
-                                              </figure>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td >
-                                              <figure itemprop="associatedMedia" itemscope>
-                                              <a href="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                  <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" style="width: 280px;height: 200px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
-                                              </a>
-                                              </figure>
-                                          </td>
-                                          <td>
-                                              <figure itemprop="associatedMedia" itemscope >
-                                                  <a href="{{ asset('uploads/images/'~pub.mutimedia[3].source) }}" itemprop="contentUrl" data-size="1000x1024">
-                                                      <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[3].source) }}" style="width: 280px;height: 200px;margin-left: 150px" itemprop="thumbnail" alt="Image description" />
-                                                  </a>
-                                              </figure>
-                                          </td>
-                                      </tr>
-                                  </table>
-                            </figure>
+                    <p style="margin-left: 10px;font-size: small;color: lightsteelblue">Publié par {{pub.utilisateur.nom |upper}} {{ pub.utilisateur.prenom}}</p>
+                    <p style="margin-left: 505px;font-size: small;color: lightsteelblue;margin-top: -35px;">le {{ pub.datePub |date('d/m/Y H:i') }}</p>
+                    <div class="card-body" style="margin-top: -20px">
+                        <h5 > {{ pub.nom }}</h5>
+                        <h6 >{{ pub.sexe}}</h6>
+                        <h6 >{{ pub.age}} ans </h6>
+                        <div style="height: 100px;position: relative">
+                            <span style="font-size: small">{{ pub.contenuPub}}</span>
                         </div>
-                        {% endif %}
-                        {% if pub.mutimedia | length == 3 %}
-                            <div class="my-gallery" itemscope>
-                                <figure itemprop="associatedMedia" itemscope >
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <figure itemprop="associatedMedia" itemscope >
-                                                    <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                        <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 170px;height: 100px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
-                                                    </a>
-                                                </figure>
-                                            </td>
-                                            <td>
-                                                <figure itemprop="associatedMedia" itemscope >
-                                                    <a href="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                        <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 160px;height: 100px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
-                                                    </a>
-                                                </figure>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                                    <a href="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                        <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" style="width: 250px;height: 120px;margin-left: 60px" itemprop="thumbnail" alt="Image description" />
-                                                    </a>
-                                                </figure>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                            </div>
-                        {% endif %}
-                        {% if pub.mutimedia | length == 2 %}
-                            <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                                    <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                        <div class="inner">
-                                                           <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 280px;height: 300px;margin-left: 7px" itemprop="thumbnail" alt="Image description" />
-                                                        </div>
-                                                    </a>
-                                                </figure>
-                                            </td>
-                                            <td>
-                                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                                    <a href="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" itemprop="contentUrl" data-size="964x1024">
-                                                        <div class="inner">
-                                                           <img class="rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 280px;height: 300px;margin-left: 130px" itemprop="thumbnail" alt="Image description" />
-                                                        </div>
-                                                    </a>
-                                                </figure>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </figure>
-                            </div>
-                        {% endif %}
-                        {% if pub.mutimedia | length == 1 %}
-                            <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-                                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                                          <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="1024x1024">
-                                              <img class="rounded" src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 500px;height: 390px;margin-left: 50px" itemprop="thumbnail" alt="Image description" />
-                                          </a>
-                                     </figure>
-                                </figure>
-                            </div>
-                        {% endif %}
+
+                        <div id="{{ pub.id }}" class="map1" style="height: 200px"></div>
+                        <div class="test">
+                            <input id="tableau1" type="hidden" value="{{ pub.longitude }}"/>
+                            <input id="tableau2" type="hidden" value="{{ pub.latitude }}"/>
+                        </div>
+                        <br>
+                        <div class="inner">
+                            <!--***** GALLERY *****-->
+                            {% if pub.mutimedia | length == 4 %}
+                                <div class="my-gallery" itemscope >
+                                    <figure itemprop="associatedMedia" itemscope >
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <figure itemprop="associatedMedia" itemscope >
+                                                        <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                            <img class="inner rounded" src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 280px;height: 200px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
+                                                        </a>
+                                                    </figure>
+                                                </td>
+                                                <td>
+                                                    <figure itemprop="associatedMedia" itemscope >
+                                                        <a href="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                            <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 280px;height: 200px;margin-left: 150px" itemprop="thumbnail" alt="Image description" />
+                                                        </a>
+                                                    </figure>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                    <figure itemprop="associatedMedia" itemscope>
+                                                        <a href="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                            <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" style="width: 280px;height: 200px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
+                                                        </a>
+                                                    </figure>
+                                                </td>
+                                                <td>
+                                                    <figure itemprop="associatedMedia" itemscope >
+                                                        <a href="{{ asset('uploads/images/'~pub.mutimedia[3].source) }}" itemprop="contentUrl" data-size="1000x1024">
+                                                            <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[3].source) }}" style="width: 280px;height: 200px;margin-left: 150px" itemprop="thumbnail" alt="Image description" />
+                                                        </a>
+                                                    </figure>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                </div>
+                            {% endif %}
+                            {% if pub.mutimedia | length == 3 %}
+                                <div class="my-gallery" itemscope>
+                                    <figure itemprop="associatedMedia" itemscope >
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <figure itemprop="associatedMedia" itemscope >
+                                                        <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                            <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 170px;height: 100px;margin-left: 20px" itemprop="thumbnail" alt="Image description" />
+                                                        </a>
+                                                    </figure>
+                                                </td>
+                                                <td>
+                                                    <figure itemprop="associatedMedia" itemscope >
+                                                        <a href="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                            <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 160px;height: 100px;margin-left: 40px" itemprop="thumbnail" alt="Image description" />
+                                                        </a>
+                                                    </figure>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                                        <a href="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                            <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[2].source) }}" style="width: 250px;height: 120px;margin-left: 60px" itemprop="thumbnail" alt="Image description" />
+                                                        </a>
+                                                    </figure>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                </div>
+                            {% endif %}
+                            {% if pub.mutimedia | length == 2 %}
+                                <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                                    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                                        <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                            <div class="inner">
+                                                                <img class="inner rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 280px;height: 300px;margin-left: 7px" itemprop="thumbnail" alt="Image description" />
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </td>
+                                                <td>
+                                                    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                                        <a href="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" itemprop="contentUrl" data-size="964x1024">
+                                                            <div class="inner">
+                                                                <img class="rounded"  src="{{ asset('uploads/images/'~pub.mutimedia[1].source) }}" style="width: 280px;height: 300px;margin-left: 130px" itemprop="thumbnail" alt="Image description" />
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </figure>
+                                </div>
+                            {% endif %}
+                            {% if pub.mutimedia | length == 1 %}
+                                <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                                    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                                            <a href="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" itemprop="contentUrl" data-size="1024x1024">
+                                                <img class="rounded" src="{{ asset('uploads/images/'~pub.mutimedia[0].source) }}" style="width: 500px;height: 390px;margin-left: 50px" itemprop="thumbnail" alt="Image description" />
+                                            </a>
+                                        </figure>
+                                    </figure>
+                                </div>
+                            {% endif %}
+                        </div>
                     </div>
+                    {% if app.user %}
+                        <form  name="form" method="get" id="{{ pub.id }}" class="comment"  action="{{ path('newcomment',{'id':pub.id}) }}" >
+                            <input  type="text" placeholder="Ecrivez votre commentaire ici ..." style="padding: 11px;width: 490px" name="aa" id="aa" class="texte" >
+                            {#                <a href="{{ path('newcomment',{'id':pub.id}) }}"> <button type="submit" class="button rounded" style="padding: 12px;margin-top:-4px">submit</button></a>#}
+                            <a href="{{ path('singlepost',{'id':pub.id}) }}" > <p style="margin-top: -40px;margin-left:520px " ><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p></a>
+                            <br>
+                            <div style="background-color: #F6FDFE;padding: 1px;border-radius: 20px">
+                                <span style="font-size: medium;font-weight: bold;margin-left: 10px" id="11" class="c1"></span>
+                                <p class="msg" id="msg" style="font-size: small;margin-left: 10px"></p>
+                            </div>
+
+                        </form>
+                    {% else %}
+                        <a href="{{ path('singlepost',{'id':pub.id}) }}" ><p style="margin-left:520px"><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p></a>
+                    {% endif %}
                 </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    // let map;
+    // let markers = [];
+    // function initMap() {
+    //     tab = document.querySelectorAll("div.map1");
+    //     console.log(tab[1].id);
+    //     for (let i = 0; i < tab.length; i++) {
+    //         const haightAshbury = {lat: 37.2720905, lng: 9.8708565};
+    //         map = new google.maps.Map(document.getElementById(tab[i].id), {
+    //             zoom: 10,
+    //             center: haightAshbury,
+    //             draggable: true
+    //         });
+    //     }
+    // }
+
+
+    function onClickBtnLike(event){
+        event.preventDefault();
+        const url = this.action;
+        console.log(url);
+        var com = this.querySelector('.msg');
+        var span = this.querySelector('.c1');
+        var count = this.querySelector('.count');
+        var texte= this.querySelector('.texte');
+        console.log(texte);
+        let data = new FormData(this);
+        axios.post(url,data).then(function(response){
+            // $('#count').load(document.URL +  ' #count');
+            console.log(response.data);
+            count.textContent = response.data.nbrcomments;
+            span.textContent = response.data.message;
             {% if app.user %}
-            <form  name="form" method="get" id="{{ pub.id }}" class="comment"  action="{{ path('newcomment',{'id':pub.id}) }}" >
-                <input  type="text" placeholder="Ecrivez votre commentaire ici ..." style="padding: 11px;width: 490px" name="aa" id="aa" class="texte" >
-{#                <a href="{{ path('newcomment',{'id':pub.id}) }}"> <button type="submit" class="button rounded" style="padding: 12px;margin-top:-4px">submit</button></a>#}
-                <a href="{{ path('singlepost',{'id':pub.id}) }}" > <p style="margin-top: -40px;margin-left:520px " ><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p></a>
-                    <br>
-                <div style="background-color: #F6FDFE;padding: 1px;border-radius: 20px">
-                    <span style="font-size: medium;font-weight: bold;margin-left: 10px" id="11" class="c1"></span>
-                    <p class="msg" id="msg" style="font-size: small;margin-left: 10px"></p>
-                </div>
-
-            </form>
-            {% else %}
-                <a href="{{ path('singlepost',{'id':pub.id}) }}" ><p style="margin-left:520px"><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p></a>
+            com.textContent = " Ajouté par {{ app.user.nom |upper }} {{ app.user.prenom }}"+"  à " + "  " + response.data.dateajout;
             {% endif %}
-        </div>
-            {% endif %}
-       {% endfor %}
-
-    </div>
-
-    </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        // let map;
-        // let markers = [];
-        // function initMap() {
-        //     tab = document.querySelectorAll("div.map1");
-        //     console.log(tab[1].id);
-        //     for (let i = 0; i < tab.length; i++) {
-        //         const haightAshbury = {lat: 37.2720905, lng: 9.8708565};
-        //         map = new google.maps.Map(document.getElementById(tab[i].id), {
-        //             zoom: 10,
-        //             center: haightAshbury,
-        //             draggable: true
-        //         });
-        //     }
-        // }
-
-
-        function onClickBtnLike(event){
-            event.preventDefault();
-            const url = this.action;
-            console.log(url);
-            var com = this.querySelector('.msg');
-            var span = this.querySelector('.c1');
-            var count = this.querySelector('.count');
-            var texte= this.querySelector('.texte');
-            console.log(texte);
-            let data = new FormData(this);
-            axios.post(url,data).then(function(response){
-                // $('#count').load(document.URL +  ' #count');
-                console.log(response.data);
-                count.textContent = response.data.nbrcomments;
-                span.textContent = response.data.message;
-                {% if app.user %}
-                    com.textContent = " Ajouté par {{ app.user.nom |upper }} {{ app.user.prenom }}"+"  à " + "  " + response.data.dateajout;
-                {% endif %}
-               $('#aa').value="";
-                // $('#msg').load(document.URL +  ' #msg');
-            }).catch(function(error){
-                console.log(error)
-            })
-        }
-        document.querySelectorAll('form.comment').forEach(function (link) {
-            link.addEventListener('submit',onClickBtnLike)
+            $('#aa').value="";
+            // $('#msg').load(document.URL +  ' #msg');
+        }).catch(function(error){
+            console.log(error)
         })
-    </script>
+    }
+    document.querySelectorAll('form.comment').forEach(function (link) {
+        link.addEventListener('submit',onClickBtnLike)
+    })
+</script>
 <!--***** PHOTOSWIPE *****-->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="pswp__bg"></div>
