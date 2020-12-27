@@ -19,9 +19,9 @@
             width: 95%;
             min-width: 360px;
             max-width: 1000px;
-            height: 92vh;
+            height: 103vh;
             min-height: 300px;
-            max-height: 720px;
+            max-height: 800px;
             background: #E6EAEA;
             margin-left: 170px;
             /*top: 100px;*/
@@ -29,13 +29,13 @@
         @media screen and (max-width: 360px) {
             #frame {
                 width: 100%;
-                height: 100vh;
+                height: 120vh;
             }
         }
       #frame .content {
             margin-left:170px;
             width: 100%;
-            height: 100%;
+            height: 90%;
             overflow: hidden;
             position: relative;
         }
@@ -81,7 +81,7 @@
         #frame .content .messages {
             height: auto;
             min-height: calc(100% - 93px);
-            max-height: calc(100% - 93px);
+            max-height: calc(100% - 143px);
             overflow-y: -moz-scrollbars-vertical;
             scroll-padding-bottom: auto;
 
@@ -170,7 +170,7 @@
             float: left;
             border: none;
             width: calc(100% - 90px);
-            padding: 11px 32px 10px 8px;
+            padding: 11px 32px 10px 17px;
             font-size: 15px;
             color: #32465a;
         }
@@ -233,73 +233,61 @@
         }
     </style>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 
 </head>
-<!--
-
-A concept for a chat interface.
-
-Try writing a new message! :)
-
-
-Follow me here:
-Twitter: https://twitter.com/thatguyemil
-Codepen: https://codepen.io/emilcarlsson/
-Website: http://emilcarlsson.se/
-
--->
 <body  style="background-color: #E4F3F5">
 {% include 'header.html.twig' %}
 <br><br><br><br><br><br>
+<h6 style="text-align: center;color: lightblue"><i class="fas fa-exclamation-circle"></i> Si vous avez des questions ou besoin d'aide , vous pouvez contacter un admin FINDME qu'il vous repondra le plutôt possible !</h6>
+
 <div id="frame">
+
     <div class="content">
-        <div class="contact-profile">
-            <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-            <p>Harvey Specter</p>
+        <div class="contact-profile" >
+            <img src="{{ asset('assets/images/usericon.png') }}" alt="" />
+            <p style="font-weight: bold;color: #32465a">Conversation avec Admin</p>
         </div>
         <div class="messages" id="loadmsg" style=" overflow-y: -moz-scrollbars-vertical;scroll-margin-bottom:inherit;
-            scroll-padding-bottom: auto;">
+            scroll-padding-bottom: auto;width: 640px">
             <ul id="anchor">
                 {% for msg in messages|sort((a, b) => a.dateMess <=> b.dateMess) %}
 {#                    <td>{{ dump(msg.dateMess,msg.message) }}</td>#}
                 {%  if msg.utilisateur==null %}
-                     <li class="replies">
-                          <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-                        <h6 style="font-size: 10px;margin-left: 380px">{{ msg.admin.nom }}</h6>
-                          <p>{{ msg.message }}</p>
-
-                         <span style="font-size: 10px;margin-left: 360px;margin-top: -15px">{{ msg.dateMess|date(('d/m/Y H:i')) }}</span>
+                    <li class="replies">
+                          <img src="{{ asset('assets/images/usericon.png') }}" alt="" style="margin-right: 0px"  />
+                          <h6 style="font-size: 10px;margin-left: 510px">{{ msg.admin.nom }}</h6>
+                          <p>{{ msg.message }}</p>&nbsp;
+                        &nbsp;<span  title="{{ msg.dateMess|date('d/m/Y H:i') }}" style="font-size: 10px;float: right;margin-top: 13px;margin-right: 3px">&nbsp; {{ msg.dateMess|ago }}</span>
                      </li>
                 {% else %}
                      <li class="sent">
+                         <img src="{{ asset('assets/images/usericon.png') }}" alt="" />
                          <h6 style="font-size: 10px">Vous</h6>
                          <p>{{ msg.message }}</p>
-                         <br>
-                         <span style="font-size: 10px;margin-top: -25px;">{{ msg.dateMess|date(('d/m/Y H:i')) }}</span>
+                         <span style="font-size: 10px;top: -25px;margin-left:0px" title="{{ msg.dateMess|date('d/m/Y H:i') }}">{{ msg.dateMess|ago }}</span>
                      </li>
                 {% endif %}
                 {% endfor %}
             </ul>
+            <br>
         </div>
-        <div class="message-input">
-            <div class="wrap">
-                <form method="post" action="{{ path('newmsg') }}" id="form" name="form" class="msgform">
-                    <input type="text" required placeholder="Ecrire votre message..."  name="msg" class="msg" id="msg"   style="margin-top: 60px"/>
-                    {#            <i class="fa fa-paperclip attachment" aria-hidden="true"></i>#}
-                    {#                style="margin-left: 230px;width: 800px;padding: 15px;border: none;"#}
-                    {#            <button class="submit" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>#}
-                </form>
-            </div>
+        <br>
+    </div>
+    <div class="message-input" style="margin-top: -120px;margin-left:210px">
+        <br><br>
+        <div class="wrap">
+            <form method="post" action="{{ path('newmsg') }}" id="form" name="form" class="msgform">
+                <i class="far fa-comment-dots" style="font-size:25px"></i><input type="text" required autocomplete="off"  placeholder="Ecrire votre message..."  onclick="onselect()" name="msg" class="msg" id="msg"  style="margin-top: 60px;width: 500px;outline: none;user-focus-pointer: none;padding:15px;background-color: transparent;border:none;border-bottom: 1px solid #32465a">
+            </form>
         </div>
     </div>
-
 </div>
-
-
-{#<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>#}
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-
+    function onselect(){
+        $('#msg').bind('focus',  false);
+    }
     var chatWindow = document.getElementById('loadmsg');
     console.log(chatWindow);
 
@@ -310,10 +298,9 @@ Website: http://emilcarlsson.se/
     };
 
     function autoRefresh_div() {
-
         $("#anchor").load(document.URL +  ' #anchor',function () {
             var box = document.getElementById('loadmsg');
-            box.scrollTop = box.scrollHeight;
+                box.scrollTop = box.scrollHeight;
         });
     }
 
@@ -335,8 +322,6 @@ Website: http://emilcarlsson.se/
                 var box = document.getElementById('loadmsg');
                 box.scrollTop = box.scrollHeight;
             });
-
-            // span.textContent = response.data.message;
 
         }).catch(function(error){
             console.log(error)

@@ -2,9 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Mutimedia;
+use App\Entity\Publication;
+use App\Form\MultimediaType;
+use App\Form\PublicationType;
 use App\Repository\CommentaireRepository;
 use App\Repository\PublicationRepository;
 use App\Repository\UtilisateurRepository;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -80,6 +85,9 @@ class HomeController extends AbstractController
         $em->flush();
         return $this->json(['msg'=>'commentaire modifié !']);
     }
+
+
+
 
 
 

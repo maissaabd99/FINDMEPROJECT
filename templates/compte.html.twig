@@ -16,6 +16,7 @@
                                     <hr style="color: #0056b3;height: 8px;width: 100%">
                                 </div>
                                 <div>
+                                    {% if app.user.bloque!=1 %}
                                     {{ form_start(form) }}
                                     <div class="row">
                                         <div class="col-md-12 mb-3">
@@ -65,6 +66,57 @@
                                         </div>
                                     </div>
                                     {{ form_end(form) }}
+                                    {% else %}
+                                    {{ form_start(form) }}
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{ form_widget(form.nom,{'attr': {'style': 'placeholder: votre nom','disabled':'disabled'}}) }}
+                                                <span style="color:red"> {{ form_errors(form.nom,{'attr': {'style': 'color :red'}}) }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{ form_widget(form.prenom,{'attr': {'style': 'padding :20px','placeholder' : 'votre prenom ','font-size':' 100px','disabled':'disabled'}}) }}
+                                                <span style="color:red">{{ form_errors(form.prenom,{'attr': {'style': 'color :red'}}) }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{ form_widget(form.adresse,{'attr': {'style': 'padding :20px','placeholder' : 'Adresse ','font-size':' 100px','disabled':'disabled'}}) }}
+                                                <span style="color:red">  {{ form_errors(form.adresse,{'attr': {'style': 'color :red'}}) }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{ form_widget(form.tel,{'attr': {'style': 'padding :20px','placeholder' : 'Téléphone ','font-size':' 100px','disabled':'disabled'}}) }}
+                                                <span style="color:red">{{ form_errors(form.tel,{'attr': {'style': 'color :red'}}) }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{ form_widget(form.username,{'attr': {'style': 'padding :20px','placeholder' : 'username ','font-size':' 100px','disabled':'disabled'}})}}
+                                                <span style="color:red"> {{ form_errors(form.username,{'attr': {'style': 'color:red'}})}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{ form_widget(form.email,{'attr': {'style': 'padding :20px','placeholder' : 'exemple@domaine.com ','font-size':' 100px','disabled':'disabled'}})}}
+                                                <span style="color:red">  {{ form_errors(form.email,{'attr': {'style': 'color:red'}})}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                {{form_widget(form.plainPassword,{label:'Nouveau Password','disabled':'disabled'})}}
+                                                <span style="color:red">{{form_errors(form.plainPassword,{'attr': {'style': 'color:red'}})}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button title="Vous êtes bloqué pour le moment par un administrateur FINDME en raison de votre comportement !" disabled type="submit" class="button button-a button-big button-rouded">Modifier</button>
+                                        </div>
+                                    </div>
+                                    {{ form_end(form) }}
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

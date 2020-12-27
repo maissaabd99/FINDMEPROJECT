@@ -84,19 +84,10 @@
        }
 </style>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
-{#<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>#}
-{#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">#}
-{#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">#}
-{#<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">#}
-{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>#}
-
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdnbu2dKsKShoO4zqET8uFYY6EV4KapxE&callback=initMap&libraries=&v=weekly" defer></script>
-
 <script>
     let map;
     let markers = [];
-    // var infowindow = new google.maps.InfoWindow();
     function initMap() {
         tab2 = document.querySelectorAll("div.test");
         long = tab2[0].childNodes;
@@ -109,7 +100,6 @@
             zoom: 12,
             center: haightAshbury,
             draggable: true
-
         });
         new google.maps.Marker({
             position: haightAshbury,
@@ -131,18 +121,22 @@
                 <div class="alert alert-warning alert-dismissible fade show" role="alert" style="visibility: hidden" id="alert">
                     You should login to create a post !
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"  onclick="closediv()">
-                        <span aria-hidden="true" onclick="closediv()">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="title-box text-center">
                     {% if app.user %}
-                        <a href="{{ path('newpost') }}"><button class="button button-a button-big button-rouded">Créer un nouvelle publication</button></a>
+                        {% if app.user.bloque!=1 %}
+                            <a href="{{ path('newpost') }}"><button class="button button-a button-big button-rouded">Créer une nouvelle publication</button></a>
+                        {% else %}
+                            <a href="#" disabled="disabled" title="Vous êtes bloqué pour le moment par un administrateur FINDME en raison de votre comportement !"><button class="button button-a button-big button-rouded">Créer une nouvelle publication</button></a>
+                        {% endif %}
                     {% else %}
-                        <button onclick="alertinfo();" class="button button-a button-big button-rouded">Créer un nouvelle publication</button>
+                        <button onclick="alertinfo();" class="button button-a button-big button-rouded">Créer une nouvelle publication</button>
+                    {% endif %}
                         <script>
                             function alertinfo(){
                                 alert("Vous devez connecter à votre compte pour pouvoir créer un post ");
-
                                 // if(document.getElementById('testdiv').style.visibility === 'visible'){
                                 //     document.getElementById('testdiv').style.visibility = 'hidden';
                                 // }
@@ -152,13 +146,8 @@
                                 // $('.alert').alert();
                                 // document.getElementById('testdiv').style.visibility = 'visible';
                             }
-                            // function closediv(){
-                            //     $().alert('dispose');
-                            //     document.getElementById('alert').style.visibility = 'hidden';
-                            //     // $('.alert').alert();
-                            // }
+
                         </script>
-                    {% endif %}
                     <p class="subtitle-a">
                     </p>
                     <div class="line-mf">
@@ -191,7 +180,6 @@
                     <div class="inner">
                         <!--***** GALLERY *****-->
                         {% if pub.mutimedia | length == 4 %}
-                            {#                       {% for img in pub.mutimedia %}#}
                             <div class="my-gallery" itemscope >
                                 <figure itemprop="associatedMedia" itemscope >
                                     <table>
@@ -310,20 +298,22 @@
                     </div>
                 </div>
                 {% if app.user %}
-                    <form  name="form" method="get" id="{{ pub.id }}" class="comment"  action="{{ path('newcomment',{'id':pub.id}) }}" >
-                        <input  required type="text" placeholder="Ecrivez votre commentaire ici ..." style="padding: 11px;width: 490px" name="aa" id="aa" class="texte" />
-                        {#                <a href="{{ path('newcomment',{'id':pub.id}) }}"> <button type="submit" class="button rounded" style="padding: 12px;margin-top:-4px">submit</button></a>#}
-                         <p style="margin-top: -40px;margin-left:520px " ><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p>
-                        <br>
-
-                        <!--div style="background-color: #F6FDFE;padding: 1px;border-radius: 20px">
-                            <span style="font-size: medium;font-weight: bold;margin-left: 10px" id="11" class="c1"></span>
-                            <p class="msg" id="msg" style="font-size: small;margin-left: 10px"></p>
-                        </div-->
-                    </form>
+                    {% if app.user.bloque!=1 %}
+                        <form  name="form" method="get" id="{{ pub.id }}" class="comment"  action="{{ path('newcomment',{'id':pub.id}) }}" >
+                            <input  required type="text" placeholder="Ecrivez votre commentaire ici ..." style="padding: 11px;width: 490px" name="aa" id="aa" class="texte" />
+                            <p style="margin-top: -40px;margin-left:520px " ><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p>
+                            <br>
+                        </form>
+                    {% else %}
+                         <form  name="form" method="get" id="{{ pub.id }}" class="comment"  action="{{ path('newcomment',{'id':pub.id}) }}" >
+                             <input  disabled title="Vous êtes bloqué pour le moment par un administrateur FINDME en raison de votre comportement !"
+                                     required type="text" placeholder="Ecrivez votre commentaire ici ..." style="padding: 11px;width: 490px" name="aa" id="aa" class="texte" />
+                             <p style="margin-top: -40px;margin-left:520px " ><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p>
+                             <br>
+                         </form>
+                    {% endif %}
                 {% else %}
                     <p style="margin-top: -10px;margin-left:520px " ><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p>
-                    {#                <button><p style="margin-left:520px"><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p></button>#}
                 {% endif %}
                 <div id="comments">
                 {% for comm in pub.commentaires %}
@@ -331,8 +321,12 @@
                         <p>
                             {% if app.user %}
                                 {% if  comm.utilisateur.id == app.user.id %}
-                                     <span onclick="spanSwitch(this.id)" id="{{ comm.id }}" class="spanclass" >{{ comm.contenuComnt }}</span>
-                                {% else %}
+                                    {% if app.user.bloque!=1 %}
+                                         <span onclick="spanSwitch(this.id)" id="{{ comm.id }}" class="spanclass" >{{ comm.contenuComnt }}</span>
+                                    {% else %}
+                                        <span  id="{{ comm.id }}" class="spanclass" title="Impossible de modifier votre commentaire car vous êtes bloqué pour le moment par un administrateur FINDME en raison de votre comportement !" >{{ comm.contenuComnt }}</span>
+                                    {% endif %}
+                                        {% else %}
                                      <span  id="{{ comm.id }}" class="spanclass" >{{ comm.contenuComnt }}</span>
                                 {% endif %}
                                 {% else %}
@@ -340,10 +334,13 @@
                             {% endif %}
                             {% if app.user %}
                                 {% if comm.utilisateur.id == app.user.id %}
-                            <a class="delcom"  id="cmt" onclick="deletef({{ comm.id }})"> <span style="float: right;margin-right: 10px;margin-top: 5px" title="supprimer"> <i class="far fa-trash-alt"></i></span></a>
-{#                            <a class="editable"><span style="float: right;margin-right: 15px;margin-top: 5px" title="Modifier"><i class="far fa-edit"></i></span></a>#}
+                                    {% if app.user.bloque!=1 %}
+                                        <a class="delcom"  id="cmt" onclick="deletef({{ comm.id }})"> <span style="float: right;margin-right: 10px;margin-top: 5px" title="supprimer"> <i class="far fa-trash-alt"></i></span></a>
+                                    {% else %}
+                                        <a class="delcom"  id="cmt" title="Vous êtes bloqué pour le moment par un administrateur FINDME en raison de votre comportement !" > <span style="float: right;margin-right: 10px;margin-top: 5px" > <i class="far fa-trash-alt"></i></span></a>
+                                    {% endif %}
+                                    {% endif %}
                           {% endif %}
-                            {% endif %}
                         </p>
                         <p id="part2" style="font-size: small;margin-left: 310px;margin-top: 10px">Ajouté par <span style="font-weight: bold" >{{ comm.utilisateur.nom |upper }} {{ comm.utilisateur.prenom }} </span>le {{ comm.dateComnt|date('d/m/Y H:i') }}</p>
                     </div>
@@ -396,72 +393,18 @@ function ajaxcall(id,contenu,input,element){
 
     )
 }
-function spanReset(id) {
-
-}
-
-
-
-
-        // function covertSpan(id){
-            // $(".editable").each(function () {
-        //     let span = $('#' + id);
-        //     // let input = $("<input>", {val: $(span).text(), type: "text"});
-        //         $('#'+id).on('click', function () {
-        //             var input = $('<input />', {
-        //                 'type': 'text',
-        //                 'value': $(span).html()
-        //             });
-        //
-        //             // $('#'+id).replaceWith(input);
-        //             $(this).parent().append(input);
-        //             $(this).remove();
-        //             input.select();
-        //         });
-        //
-        //         $(this).on('blur',function () {
-        //             console.log("gggggggg");
-        //             var span=$("<span>", {text:$(this).val()});
-        //             $(this).parent().append($('<span />').html($(this).val()));
-        //
-        //             // $(this).replaceWith(span);
-        //             // $(this).remove();
-        //         });
-        //
-        //     // });
-        // }
-
-
-            // let span = $('#' + id);
-            // let input = $("<input>", {val: $(span).text(), type: "text"});
-            // $(".editable").each(function () {
-            //         // if(document.getElementById(id).nodeName==="SPAN"){
-            //         $(span).replaceWith(input);
-            //         input.select();
-            //     // });
-            //     // }
-            //     // else if (document.getElementById(id).nodeName==="INPUT"){
-            //         console.log('input: '+input.text());
-            //         $(input).on('blur', function () {
-            //             var span=$("<span>", {text:$(this).val(),class:"spanclass"});
-            //             $('#'+id).replaceWith(span);
-            //
-            //         });
-            //     // }
-            //
-            // });
 
 
         function deletef(d){
             console.log(d);
             $.ajax({
                     url: "{{ path('deletecomment')}}",
-                    type: 'POST',
+                    type: 'post',
                     data: {d:d},
-                    dataType: 'json',
+                    // dataType: 'json',
                     success: function(da){
                         // if(da.test===true){
-                        $('.add').load(document.URL +  ' .add');
+                        // $('.add').load(document.URL +  ' .add');
                         $('#count').load(document.URL +  ' #count');
                         $('#comments').load(document.URL +  ' #comments');
                         console.log("cmnt sup")
@@ -557,14 +500,14 @@ function spanReset(id) {
 <!-- PhotoSwipe JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js"></script>
-<footer>
+<footer style="color: black">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <div class="copyright-box">
                     <p class="copyright">&copy; Copyright <strong>FINDME</strong>. All Rights Reserved</p>
                     <div class="credits">
-                        Developed by <a href="https://bootstrapmade.com/">GALACTECH TEAM</a>
+                        Developed by <a href="#" style="color: black">GALACTECH TEAM</a>
                     </div>
                 </div>
             </div>

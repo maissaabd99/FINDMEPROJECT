@@ -82,10 +82,7 @@
                         map.addListener("click", (event) => {
                             addMarker(event.latLng);
                         });
-                        // Adds a marker at the center of the map.
-                        // addMarker(haightAshbury);
                     }
-
 
                     function GetAddress() {
                         var lat =markers[0].position.lat();
@@ -106,18 +103,24 @@
 
                     // Adds a marker to the map and push to the array.
                     function addMarker(location) {
-                        if(markers.length===1){
-                            alert('Vous devez choisir un seule localisation !\nVous pouvez supprimer la localisation choisie par le bouton Delete Markers !');
-                        }else{
-                            if(markers.length===0){
-                                const marker = new google.maps.Marker({
-                                    position: location,
-                                    map: map,
-                                });
-                                markers.push(marker);
-                            }
-                        }
-                      //  document.getElementById('tableau1').setAttribute("value",markers[0].position.response.data);
+                        deleteMarkers();
+                        const marker = new google.maps.Marker({
+                                        position: location,
+                                        map: map,
+                         });
+                        markers.push(marker);
+
+                        // if(markers.length===1){
+                        //     alert('Vous devez choisir un seule localisation !\nVous pouvez supprimer la localisation choisie par le bouton Delete Markers !');
+                        // }else{
+                        //     if(markers.length===0){
+                        //         const marker = new google.maps.Marker({
+                        //             position: location,
+                        //             map: map,
+                        //         });
+                        //         markers.push(marker);
+                        //     }
+                        // }
                         console.log(markers[0].title);
                         document.getElementById('tableau1').setAttribute("value",markers[0].position.lat());
                         document.getElementById('tableau2').setAttribute("value",markers[0].position.lng());
@@ -125,7 +128,6 @@
                         console.log(document.getElementById('tableau1'),document.getElementById('tableau2'));
                     }
 
-                    // Sets the map on all markers in the array.
                     function setMapOnAll(map) {
                         for (let i = 0; i < markers.length; i++) {
                             markers[i].setMap(map);
@@ -160,16 +162,16 @@
                 <div id="floating-panel">
 {#                    <input onclick="clearMarkers();" type="button" value="Hide Markers" />#}
 {#                    <input onclick="showMarkers();" type="button" value="Show All Markers" />#}
-                    <input onclick="deleteMarkers();" type="button" value="Delete Markers" />
+                    <input onclick="deleteMarkers();" type="button" value="Supprimer Markeur" />
                 </div>
                 <div id="map">
 
                 </div>
             </div>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <input type="text"  id="tableau1"  name="markers1" value="">
-        <input type="text"  id="tableau2"  name="markers2" value="">
-        <input type="button" value="Get Address" onclick="GetAddress()" />
+        <input   id="tableau1"  name="markers1" value="">
+        <input   id="tableau2"  name="markers2" value="">
+{#        <input type="button" value="Get Address" onclick="GetAddress()" />#}
 
         <div class="col">
                     <div style="margin-left: 80px">
@@ -177,7 +179,7 @@
                             <i class="fa fa-cloud-upload mr-2 text-muted"></i>
                             <small class="text-uppercase font-weight-bold text-muted">Choisir 4 photos</small>
                             <br>
-                            <input type="file" name="files[]"  id="files" multiple="multiple" accept="image/jpg,image/png, image/jpeg" aria-valuemax="" required/>
+                            <input type="file" name="files[]"  id="files" multiple="multiple"  required/>
                         </label>
                     </div>
             <div style="height: 20px;">
@@ -197,7 +199,7 @@
 <script>
     $("#files").on("change", function() {
         if ($("#files")[0].files.length > 4) {
-            alert("Vous pouvez juste selectionner 4 images");
+            alert("Vous pouvez selectionner au maximum 4 images !");
             $("#files").val([]);
         }
     });
@@ -205,7 +207,7 @@
 
     uploadField.onchange = function() {
         if(this.files[0].size > 307200){
-            alert("File is too big!");
+            alert("Fichier trés volumineux !");
             this.value = "";
         }
     };
@@ -214,14 +216,14 @@
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-<footer>
+<footer style="color: black">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <div class="copyright-box">
                     <p class="copyright">&copy; Copyright <strong>FINDME</strong>. All Rights Reserved</p>
                     <div class="credits">
-                        Developed by <a href="https://bootstrapmade.com/">GALACTECH TEAM</a>
+                        Developed by <a href="#" style="color: black">GALACTECH TEAM</a>
                     </div>
                 </div>
             </div>
