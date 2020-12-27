@@ -179,137 +179,304 @@
 {#</html>#}
 {#<!DOCTYPE html>#}
 {#<html lang="en">#}
-<style>
-    .map1 {
-        height: 30%;
-    }
-    #map {
-        height: 100%;
-    }
-</style>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>#}
+{#<style>#}
+{#    .map1 {#}
+{#        height: 30%;#}
+{#    }#}
+{#    #map {#}
+{#        height: 100%;#}
+{#    }#}
+{#</style>#}
+{#<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>#}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+{#<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>#}
 {#    <title>map</title>#}
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDch6NmhxtcdIgcCRjZbblh5z16CK-a2Jo&callback=initMap&libraries=&v=weekly" defer></script>
+{#<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDch6NmhxtcdIgcCRjZbblh5z16CK-a2Jo&callback=initMap&libraries=&v=weekly" defer></script>#}
 
-<script>
+{#<script>#}
 
-    let map;
-    let markers = [];
-    function initMap(el) {
-        tab = document.querySelectorAll("div.map1");
-        console.log(tab[1].id);
-        for (let i=0;i<tab.length;i++){
-            const haightAshbury = { lat: 37.2720905, lng: 9.8708565 };
-            map = new google.maps.Map(document.getElementById(tab[i].id), {
-                zoom: 10,
-                center: haightAshbury,
-                draggable: true
+{#    let map;#}
+{#    let markers = [];#}
+{#    function initMap(el) {#}
+{#        tab = document.querySelectorAll("div.map1");#}
+{#        console.log(tab[1].id);#}
+{#        for (let i=0;i<tab.length;i++){#}
+{#            const haightAshbury = { lat: 37.2720905, lng: 9.8708565 };#}
+{#            map = new google.maps.Map(document.getElementById(tab[i].id), {#}
+{#                zoom: 10,#}
+{#                center: haightAshbury,#}
+{#                draggable: true#}
 
-            });
-        }
+{#            });#}
+{#        }#}
 
-        // This event listener will call addMarker() when the map is clicked.
-        // map.addListener("click", (event) => {
-        //     addMarker(event.latLng);
-        // });
-        // Adds a marker at the center of the map.
-        // addMarker(haightAshbury);
+{#        // This event listener will call addMarker() when the map is clicked.#}
+{#        // map.addListener("click", (event) => {#}
+{#        //     addMarker(event.latLng);#}
+{#        // });#}
+{#        // Adds a marker at the center of the map.#}
+{#        // addMarker(haightAshbury);#}
+{#    }#}
+{#    </script>#}
+{#    <body>#}
+{#    {% for i in 1..5 %}#}
+
+{#        <div id="{{ i }}" class="map1"></div>#}
+{#    <div class="test">#}
+{#        <span id="tableau1"></span>#}
+{#        <span id="tableau2" ></span>#}
+{#    </div>#}
+
+{#{% endfor %}#}
+
+{#<script>#}
+{#    // let markers = [];#}
+{#    // // var geocoder= new google.maps.Geocoder();#}
+{#    // var maps = document.querySelectorAll('div.map1');#}
+{#    // var childs = document.querySelectorAll('div.test');#}
+{#    // // console.log(childs[0]);#}
+{#    // // Array.from(maps).forEach(function(el) {#}
+{#    // //     console.log(el);#}
+{#    // // });#}
+{#    //  maps = Array.prototype.slice.call(maps, 0);#}
+{#    // console.log(maps);#}
+{#    //#}
+{#    // var  map;#}
+{#    //  var haightAshbury;#}
+{#    // function initMap() {#}
+{#    //     for (let i = 0; i < maps.length; i++) {#}
+{#    //#}
+{#    //         map = null;#}
+{#    //         // long = childs[i].childNodes;#}
+{#    //         // console.log(long[1].textContent);#}
+{#    //         // console.log(long[2].textContent);#}
+{#    //         haightAshbury = null;#}
+{#    //         haightAshbury = {lat: 37.2720905, lng: 9.8708565};#}
+{#    //         map = new google.maps.Map(maps[i], {#}
+{#    //             zoom: 10,#}
+{#    //             center: haightAshbury,#}
+{#    //             mapTypeId: "plan"#}
+{#    //         });#}
+{#    //         // console.log(map, haightAshbury);#}
+{#    //         // map.addListener("click", (event) => }#}
+{#    //         //     addMarker(event.latLng);#}
+{#    //         // });#}
+{#    //         // Adds a marker to the map and push to the array.#}
+{#    //     }#}
+{#    // }#}
+{#        // function addMarker(location) {#}
+{#        //     // if (markers.length === 1) {#}
+{#        //     //     alert('Vous devez choisir un seule localisation !\nVous pouvez supprimer la localisation choisie par le bouton Delete Markers !');#}
+{#        //     // } else {#}
+{#        //     //     if (markers.length === 0) {#}
+{#        //             const marker = new google.maps.Marker({#}
+{#        //                 position: location,#}
+{#        //                 map: map,#}
+{#        //             });#}
+{#        //             markers.push(marker);#}
+{#                // }#}
+{#            // }#}
+{#            // document.getElementById('tableau1').setAttribute("value",markers[0].position.lat());#}
+{#            // document.getElementById('tableau2').setAttribute("value",markers[0].position.lng());#}
+{#            // console.log(geocoder.reverseGeocodeCoordinate(markers[0].position));#}
+{#            // console.log(document.getElementById('tableau1'),document.getElementById('tableau2'));#}
+{#        // }#}
+
+{#        // Sets the map on all markers in the array.#}
+{#        // function setMapOnAll(map) {#}
+{#        //     for (let i = 0; i < markers.length; i++) {#}
+{#        //         markers[i].setMap(map);#}
+{#        //     }#}
+{#        // }#}
+
+{#        // Removes the markers from the map, but keeps them in the array.#}
+{#    //     function clearMarkers() {#}
+{#    //         setMapOnAll(null);#}
+{#    //     }#}
+{#    //#}
+{#    //     // Shows any markers currently in the array.#}
+{#    //     function showMarkers() {#}
+{#    //         setMapOnAll(map);#}
+{#    //     }#}
+{#    //#}
+{#    //     // Deletes all markers in the array by removing references to them.#}
+{#    //     function deleteMarkers() {#}
+{#    //         clearMarkers();#}
+{#    //         markers = [];#}
+{#    //     }#}
+{#    // }#}
+{#    // maps=document.querySelectorAll('div.map1');#}
+{#    // long = maps[1].childNodes;#}
+{#    // console.log(long[1].textContent);#}
+{#    // document.querySelectorAll('map1');#}
+{#</script>#}
+{#</body>#}
+{#</html>#}
+
+
+{#<html>#}
+{#<head>#}
+{#    <meta name="viewport" content="initial-scale=1.0, width=device-width" />#}
+{#    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"#}
+{#            type="text/javascript" charset="utf-8"></script>#}
+{#    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"#}
+{#            type="text/javascript" charset="utf-8"></script>#}
+{#    <script type="module" src="https://js.api.here.com/v3/3.1/mapsjs.bundle.js"></script>#}
+
+{#</head>#}
+{#<body>#}
+{#<div style="width: 640px; height: 480px" id="mapContainer"></div>#}
+{#<script>#}
+{#    // Initialize the platform object:#}
+{#    var platform = new H.service.Platform({#}
+{#        'apikey': '8AvdgEinBW1KWzSyOG2j4-uBh-Ol5GBgig5vFPvmcJU'#}
+{#    });#}
+
+{#    // Obtain the default map types from the platform object#}
+{#    var maptypes = platform.createDefaultLayers();#}
+
+{#    // Instantiate (and display) a map object:#}
+{#    var map = new H.Map(#}
+{#        document.getElementById('mapContainer'),#}
+{#        maptypes.vector.normal.map,#}
+{#        {#}
+{#            zoom: 10,#}
+{#            center: { lng: 52.71013844082899  , lat:13.839453125000002 }#}
+{#        });#}
+{#</script>#}
+{#</body>#}
+{#</html>#}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Interactive base map</title>
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script>window.ENV_VARIABLE = 'developer.here.com'</script><script src='../iframeheight.js'></script></head>
+
+<body id="markers-on-the-map">
+<div class="page-header">
+    <h1>Interactive base map</h1>
+    <p>Retrieve information associated with the map features</p>
+</div>
+<p>This example demonstrates how to enable the interactions with the base map features. The interactions are enabled for the countries'
+    cities', towns' and neighbourhoods' labels. When these labels are clicked the info bubble with the information about the label is shown.
+</p>
+<div id="map"></div>
+<h3>Code</h3>
+<p>The code below adds a <codeph>change</codeph> event listener to the instance of the <code>H.map.Style</code> associated with the
+    layer's provider. Within this listener data layers 'places' and 'places.populated-places' are set as interactive and the
+    <code>tap</code> event listener is assigned to display the information in the info bubble. Please refer to the
+    <a href="https://developer.here.com/documentation/maps/common/credentials.html">Developer Guide</a> for more information
+    about the vector styles.
+</p>
+<script type="text/javascript">
+    /**
+     * @param  {H.Map} map      A HERE Map instance within the application
+     */
+    function setInteractive(map){
+// get the vector provider from the base layer
+        var provider = map.getBaseLayer().getProvider();
+
+// get the style object for the base layer
+        var style = provider.getStyle();
+
+        var changeListener = (evt) => {
+            if (style.getState() === H.map.Style.State.READY) {
+                style.removeEventListener('change', changeListener);
+
+// enable interactions for the desired map features
+                style.setInteractive(['places', 'places.populated-places'], true);
+
+// add an event listener that is responsible for catching the
+// 'tap' event on the feature and showing the infobubble
+                provider.addEventListener('tap', onTap);
+            }
+        };
+        style.addEventListener('change', changeListener);
     }
-    </script>
-    <body>
-    {% for i in 1..5 %}
 
-        <div id="{{ i }}" class="map1"></div>
-    <div class="test">
-        <span id="tableau1"></span>
-        <span id="tableau2" ></span>
-    </div>
+    /**
+     * Boilerplate map initialization code starts below:
+     */
 
-{% endfor %}
+//Step 1: initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
+    var platform = new H.service.Platform({
+        'apikey': '8AvdgEinBW1KWzSyOG2j4-uBh-Ol5GBgig5vFPvmcJU'
+        });
+    // var platform = new H.service.Platform({
+    //     apikey: window.apikey
+    // });
+    var defaultLayers = platform.createDefaultLayers();
 
-<script>
-    // let markers = [];
-    // // var geocoder= new google.maps.Geocoder();
-    // var maps = document.querySelectorAll('div.map1');
-    // var childs = document.querySelectorAll('div.test');
-    // // console.log(childs[0]);
-    // // Array.from(maps).forEach(function(el) {
-    // //     console.log(el);
-    // // });
-    //  maps = Array.prototype.slice.call(maps, 0);
-    // console.log(maps);
-    //
-    // var  map;
-    //  var haightAshbury;
-    // function initMap() {
-    //     for (let i = 0; i < maps.length; i++) {
-    //
-    //         map = null;
-    //         // long = childs[i].childNodes;
-    //         // console.log(long[1].textContent);
-    //         // console.log(long[2].textContent);
-    //         haightAshbury = null;
-    //         haightAshbury = {lat: 37.2720905, lng: 9.8708565};
-    //         map = new google.maps.Map(maps[i], {
-    //             zoom: 10,
-    //             center: haightAshbury,
-    //             mapTypeId: "plan"
-    //         });
-    //         // console.log(map, haightAshbury);
-    //         // map.addListener("click", (event) => }
-    //         //     addMarker(event.latLng);
-    //         // });
-    //         // Adds a marker to the map and push to the array.
-    //     }
-    // }
-        // function addMarker(location) {
-        //     // if (markers.length === 1) {
-        //     //     alert('Vous devez choisir un seule localisation !\nVous pouvez supprimer la localisation choisie par le bouton Delete Markers !');
-        //     // } else {
-        //     //     if (markers.length === 0) {
-        //             const marker = new google.maps.Marker({
-        //                 position: location,
-        //                 map: map,
-        //             });
-        //             markers.push(marker);
-                // }
-            // }
-            // document.getElementById('tableau1').setAttribute("value",markers[0].position.lat());
-            // document.getElementById('tableau2').setAttribute("value",markers[0].position.lng());
-            // console.log(geocoder.reverseGeocodeCoordinate(markers[0].position));
-            // console.log(document.getElementById('tableau1'),document.getElementById('tableau2'));
-        // }
+    //Step 2: initialize a map
+    var map = new H.Map(document.getElementById('map'),
+        defaultLayers.vector.normal.map, {
+            center: {lat: 52.51477270923461, lng: 13.39846691425174},
+            zoom: 13,
+            pixelRatio: window.devicePixelRatio || 1
+        });
+    // add a resize listener to make sure that the map occupies the whole container
+    window.addEventListener('resize', () => map.getViewPort().resize());
 
-        // Sets the map on all markers in the array.
-        // function setMapOnAll(map) {
-        //     for (let i = 0; i < markers.length; i++) {
-        //         markers[i].setMap(map);
-        //     }
-        // }
+    //Step 3: make the map interactive
+    // MapEvents enables the event system
+    // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
-        // Removes the markers from the map, but keeps them in the array.
-    //     function clearMarkers() {
-    //         setMapOnAll(null);
-    //     }
-    //
-    //     // Shows any markers currently in the array.
-    //     function showMarkers() {
-    //         setMapOnAll(map);
-    //     }
-    //
-    //     // Deletes all markers in the array by removing references to them.
-    //     function deleteMarkers() {
-    //         clearMarkers();
-    //         markers = [];
-    //     }
-    // }
-    // maps=document.querySelectorAll('div.map1');
-    // long = maps[1].childNodes;
-    // console.log(long[1].textContent);
-    // document.querySelectorAll('map1');
+    // Create the default UI components
+    var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+    var bubble;
+    /**
+     * @param evt
+     */
+    function onTap(evt) {
+// calculate infobubble position from the cursor screen coordinates
+        let position = map.screenToGeo(
+            evt.currentPointer.viewportX,
+            evt.currentPointer.viewportY
+        );
+// read the properties associated with the map feature that triggered the event
+        let props = evt.target.getData().properties;
+
+// create a content for the infobubble
+        let content = '<div style="width:250px">It is a ' + props.kind + ' ' + (props.kind_detail || '') +
+            (props.population ? '<br /> population: ' + props.population : '') +
+            '<br /> local name is ' + props['name'] +
+            (props['name:ar'] ? '<br /> name in Arabic is '+ props['name:ar'] : '') + '</div>';
+
+// Create a bubble, if not created yet
+        if (!bubble) {
+            bubble = new H.ui.InfoBubble(position, {
+                content: content
+            });
+            ui.addBubble(bubble);
+        } else {
+// Reuse existing bubble object
+            bubble.setPosition(position);
+            bubble.setContent(content);
+            bubble.open();
+        }
+    }
+
+    // Now use the map as required...
+    setInteractive(map);
 </script>
 </body>
-{#</html>#}
+</html>

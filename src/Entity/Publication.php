@@ -35,7 +35,7 @@ class Publication
     private $statut;
 
     /**
-     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="publication")
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="publication",cascade={"persist", "remove"})
      */
     private $commentaires;
 
@@ -50,7 +50,7 @@ class Publication
     private $admin;
 
     /**
-     * @ORM\OneToMany(targetEntity=Mutimedia::class, mappedBy="publication")
+     * @ORM\OneToMany(targetEntity=Mutimedia::class, mappedBy="publication",cascade={"persist", "remove"})
      */
     private $mutimedia;
 

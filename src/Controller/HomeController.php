@@ -9,6 +9,7 @@ use App\Form\PublicationType;
 use App\Repository\CommentaireRepository;
 use App\Repository\PublicationRepository;
 use App\Repository\UtilisateurRepository;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -147,6 +148,9 @@ class HomeController extends AbstractController
         }
         return $this->render('publication/newpublication.html.twig', ['form' => $form->createView(), 'form1' => $form1->createView()]);
     }
+
+
+
 
 
 
