@@ -40,16 +40,18 @@ class PostController extends AbstractController
 
     /**
      * @Route("/MesPublication", name="mespublication")
-     * @param PublicationRepository $repository
+     * @param UtilisateurRepository $repository
      * @param Request $request
      * @return Response
      * @throws Exception
      */
 
-    public function index2(PublicationRepository $repository, Request $request): Response
+    public function index2(UtilisateurRepository $repository, Request $request): Response
     {
         $now = new \DateTime('now');
-        $pubs = $repository->findAll();
+        $userid= $this->getUser()->getId();
+        $user = $repository->find($userid);
+        $pubs = $user->getPublications();
         $commentaire = new Commentaire();
         $forms = [];
         $form = $this->createForm(CommentType::class, $commentaire);

@@ -171,7 +171,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <div  class=" container">
         <div class="animated fadeIn carte " style="width: 64rem;" id="divcard">
-            {% for pub in pubs %}
+            {% for pub in pubs|sort((a, b) => b.datePub <=> a.datePub) %}
                 {% if pub.statut !="R" %}
                     <div class=" shadow p-3 mb-5 bg-white rounded card   ml-5 col-lg-8 carte"  style="border-radius: 20%">
                         <p style="margin-left: 10px;font-size: small;color: lightsteelblue">Publié par {{pub.utilisateur.nom |upper}} {{ pub.utilisateur.prenom}}</p>
@@ -366,11 +366,13 @@
                         {% endif %}
                     </div>
                 {% endif %}
+                {% else %}
+                <h5 style="color: #0056b3;margin-left:140px ">Vous ne possedez aucune publication pour le moment !</h5>
             {% endfor %}
         </div>
     </div>
 </section>
-{#{% block javascripts %}#}
+<br><br><br>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         function delpost(d) {

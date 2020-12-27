@@ -145,8 +145,12 @@
                 </div>
                 <div class="title-box text-center">
                     {% if app.user %}
-                        <a href="{{ path('newpost') }}"><button class="button button-a button-big button-rouded">Créer une nouvelle publication</button></a>
-                    {% else %}
+                        {% if app.user.bloque!=1 %}
+                            <a href="{{ path('newpost') }}"><button class="button button-a button-big button-rouded">Créer une nouvelle publication</button></a>
+                        {% else %}
+                            <a href="#"  title="Vous êtes bloqués par un admin FINDME en raison de votre comportement !"><button disabled class="button button-a button-big button-rouded">Créer une nouvelle publication</button></a>
+                        {% endif %}
+                            {% else %}
                         <button onclick="alertinfo();" class="button button-a button-big button-rouded">Créer une nouvelle publication</button>
                     {% endif %}
                     <script>
@@ -171,15 +175,9 @@
 </section>
 <div  class=" container"  style="margin-left: 280px">
     <div class="animated fadeIn carte " style="width: 64rem;" id="divcard">
-        {% for pub in pubs %}
+        {% for pub in pubs|sort((a, b) => b.datePub <=> a.datePub) %}
             {% if pub.statut !="R" %}
                 <div class=" shadow p-3 mb-5 bg-white rounded card   ml-5 col-lg-8 carte"  style="border-radius: 20%">
-                    {#    <div  class=" container">#}
-                    {#>>>>>>> Stashed changes#}
-                    {#    <div class="animated fadeIn carte " style="width: 64rem;" id="divcard">#}
-                    {#        {% for pub in pubs %}#}
-                    {#            <div class=" shadow p-3 mb-5 bg-white rounded card   ml-5 col-lg-8 carte"  style="border-radius: 20%">#}
-
                     <p style="margin-left: 10px;font-size: small;color: lightsteelblue">Publié par {{pub.utilisateur.nom |upper}} {{ pub.utilisateur.prenom}}</p>
                     <p style="margin-left: 505px;font-size: small;color: lightsteelblue;margin-top: -35px;">le {{ pub.datePub |date('d/m/Y H:i') }}</p>
                     <div class="card-body" style="margin-top: -20px">
@@ -313,17 +311,29 @@
                         </div>
                     </div>
                     {% if app.user %}
-                        <form  name="form" method="get" id="{{ pub.id }}" class="comment"  action="{{ path('newcomment',{'id':pub.id}) }}" >
-                            <input  type="text" placeholder="Ecrivez votre commentaire ici ..." style="padding: 11px;width: 490px" name="aa" id="aa" class="texte" >
-                            {#                <a href="{{ path('newcomment',{'id':pub.id}) }}"> <button type="submit" class="button rounded" style="padding: 12px;margin-top:-4px">submit</button></a>#}
-                            <a href="{{ path('singlepost',{'id':pub.id}) }}" > <p style="margin-top: -40px;margin-left:520px " ><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p></a>
-                            <br>
-                            <div style="background-color: #F6FDFE;padding: 1px;border-radius: 20px">
-                                <span style="font-size: medium;font-weight: bold;margin-left: 10px" id="11" class="c1"></span>
-                                <p class="msg" id="msg" style="font-size: small;margin-left: 10px"></p>
-                            </div>
-
-                        </form>
+                        {% if app.user.bloque!=1 %}
+                            <form  name="form" method="get" id="{{ pub.id }}" class="comment"  action="{{ path('newcomment',{'id':pub.id}) }}" >
+                                <input  type="text" placeholder="Ecrivez votre commentaire ici ..." style="padding: 11px;width: 490px" name="aa" id="aa" class="texte" >
+                                <a href="{{ path('singlepost',{'id':pub.id}) }}" > <p style="margin-top: -40px;margin-left:520px " ><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p></a>
+                                <br>
+                                <div style="background-color: #F6FDFE;padding: 1px;border-radius: 20px">
+                                    <span style="font-size: medium;font-weight: bold;margin-left: 10px" id="11" class="c1"></span>
+                                    <p class="msg" id="msg" style="font-size: small;margin-left: 10px"></p>
+                                </div>
+                            </form>
+                        {% else %}
+                            <form  name="form" method="get" id="{{ pub.id }}" class="comment"  action="{{ path('newcomment',{'id':pub.id}) }}" >
+                                <input disabled type="text" placeholder="Ecrivez votre commentaire ici ..."
+                                       title="Vous êtes bloqués par un admin FINDME en raison de votre comportement !"
+                                       style="padding: 11px;width: 490px" name="aa" id="aa" class="texte" >
+                                <a href="{{ path('singlepost',{'id':pub.id}) }}" > <p style="margin-top: -40px;margin-left:520px " ><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p></a>
+                                <br>
+                                <div style="background-color: #F6FDFE;padding: 1px;border-radius: 20px">
+                                    <span style="font-size: medium;font-weight: bold;margin-left: 10px" id="11" class="c1"></span>
+                                    <p class="msg" id="msg" style="font-size: small;margin-left: 10px"></p>
+                                </div>
+                            </form>
+                        {% endif %}
                     {% else %}
                         <a href="{{ path('singlepost',{'id':pub.id}) }}" ><p style="margin-left:520px"><span id="count" class="count">{{ pub.commentaires | length }}</span> commentaires</p></a>
                     {% endif %}

@@ -18,6 +18,7 @@
         #frame {
             width: 95%;
             min-width: 360px;
+            border: 2px solid  #32465a;
             max-width: 1000px;
             height: 103vh;
             min-height: 300px;
@@ -251,6 +252,7 @@
         <div class="messages" id="loadmsg" style=" overflow-y: -moz-scrollbars-vertical;scroll-margin-bottom:inherit;
             scroll-padding-bottom: auto;width: 640px">
             <ul id="anchor">
+                {% if app.user.conversation!=null %}
                 {% for msg in messages|sort((a, b) => a.dateMess <=> b.dateMess) %}
 {#                    <td>{{ dump(msg.dateMess,msg.message) }}</td>#}
                 {%  if msg.utilisateur==null %}
@@ -269,6 +271,7 @@
                      </li>
                 {% endif %}
                 {% endfor %}
+                {% endif %}
             </ul>
             <br>
         </div>

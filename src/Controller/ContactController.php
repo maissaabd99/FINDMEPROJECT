@@ -26,16 +26,13 @@ class ContactController extends AbstractController{
     public function index(ConversationRepository $repository,UtilisateurRepository $rep,Request $request): Response
     {
         $user = $rep->find($this->getUser()->getId());
-        if($user->getConversation()==null){
-            $conversation= new Conversation();
-            $conversation->setUtilisateur($user);
-            $em=$this->getDoctrine()->getManager();
-            $em->persist($conversation);
-            $em->flush();
+        if($user->getConversation()!=null){
+            $coversation = $repository->findOneBy(['utilisateur'=>$user]);
+            $messages=$coversation->getMessages();
+            return $this->render('Contact/Contact.html.twig',['messages'=>$messages]);
         }
-        $coversation = $repository->findOneBy(['utilisateur'=>$user]);
-        $messages=$coversation->getMessages();
-        return $this->render('Contact/Contact.html.twig',['messages'=>$messages]);
+
+        return $this->render('Contact/Contact.html.twig');
     }
 
 
@@ -53,8 +50,14 @@ class ContactController extends AbstractController{
         $message = new Message();
         $iduser = $this->getUser()->getId();
         $user= $repository->find($iduser);
+        if($user->getConversation()==null){
+            $conversation= new Conversation();
+            $conversation->setUtilisateur($user);
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($conversation);
+            $em->flush();
+        }
         $em=$this->getDoctrine()->getManager();
-        $evm = new EventManager();
         $msg=$request->request->get('msg');
         $conv = $user->getConversation();
         $message->setUtilisateur($user);
