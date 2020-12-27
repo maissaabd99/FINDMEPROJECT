@@ -22,6 +22,7 @@ class CommentController extends AbstractController
      * @param PublicationRepository $comment
      * @param UtilisateurRepository $repository
      * @return Response
+     * @throws \Exception
      */
     public function index($id,Request $request,PublicationRepository $comment,UtilisateurRepository  $repository): Response
     { $pub = $comment->find($id);
