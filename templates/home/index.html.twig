@@ -3,9 +3,11 @@
     <meta charset="utf-8">
     <title>FIND ME ..</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    {% include 'header.html.twig' %}
+    <script src="https://kit.fontawesome.com/a9b4fa71fa.js" crossorigin="anonymous"></script>
+    <style>
+
+    </style>
+ {% include 'header.html.twig' %}
 
 <!--/ Intro Skew Star /-->
 <div id="home" class="intro route bg-image" style="background-image: url({{asset("assets/img/intro-bg.jpg")}})">
@@ -22,109 +24,80 @@
     </div>
 </div>
 
+<div>
 
-<!--/ Section Contact-Footer Star /-->
-<section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url({{ asset("assets/img/overlay-bg.jpg") }})">
-    <div class="overlay-mf"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="contact-mf">
-                    <div id="contact" class="box-shadow-full">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="title-box-2">
-                                    <h5 class="title-left">
-                                        Send Message Us
-                                    </h5>
-                                </div>
-                                <div>
-                                    <form action="" method="post" role="form" class="contactForm">
-                                        <div id="sendmessage">Your message has been sent. Thank you!</div>
-                                        <div id="errormessage"></div>
-                                        <div class="row">
-                                            <div class="col-md-12 mb-3">
-                                                <div class="form-group">
-                                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                                    <div class="validation"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 mb-3">
-                                                <div class="form-group">
-                                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                                                    <div class="validation"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 mb-3">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                                                    <div class="validation"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 mb-3">
-                                                <div class="form-group">
-                                                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                                                    <div class="validation"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="title-box-2 pt-4 pt-md-0">
-                                    <h5 class="title-left">
-                                        Get in Touch
-                                    </h5>
-                                </div>
-                                <div class="more-info">
-                                    <p class="lead">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolorum dolorem soluta quidem
-                                        expedita aperiam aliquid at.
-                                        Totam magni ipsum suscipit amet? Autem nemo esse laboriosam ratione nobis
-                                        mollitia inventore?
-                                    </p>
-                                    <ul class="list-ico">
-                                        <li><span class="ion-ios-location"></span> 329 WASHINGTON ST BOSTON, MA 02108</li>
-                                        <li><span class="ion-ios-telephone"></span> (617) 557-0089</li>
-                                        <li><span class="ion-email"></span> contact@example.com</li>
-                                    </ul>
-                                </div>
-                                <div class="socials">
-                                    <ul>
-                                        <li><a href=""><span class="ico-circle"><i class="ion-social-facebook"></i></span></a></li>
-                                        <li><a href=""><span class="ico-circle"><i class="ion-social-instagram"></i></span></a></li>
-                                        <li><a href=""><span class="ico-circle"><i class="ion-social-twitter"></i></span></a></li>
-                                        <li><a href=""><span class="ico-circle"><i class="ion-social-pinterest"></i></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
+</div>
+    <div class="section-counter paralax-mf bg-image" style="background-image: url({{asset("assets/img/counters-bg.jpg")}})">
+        <div class="overlay-mf"></div>
         <div class="container">
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="copyright-box">
-                        <p class="copyright">&copy; Copyright <strong>DevFolio</strong>. All Rights Reserved</p>
-                        <div class="credits">
-
-                            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                <div class="col-sm-3 col-lg-3">
+                    <div class="counter-box">
+                        <div class="counter-ico">
+                            <span class="ico-circle"><i class="fas fa-mail-bulk"></i></span>
+                        </div>
+                        <div class="counter-num">
+                            <p class="counter">{{totalPubs}}</p>
+                            <span class="counter-text">Nombre de publications</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-lg-3">
+                    <div class="counter-box pt-4 pt-md-0">
+                        <div class="counter-ico">
+                            <span class="ico-circle"><i class="fas fa-hands-helping"></i></span>
+                        </div>
+                        <div class="counter-num">
+                            <p class="counter">{{ totalPubsWithStatusR }}</p>
+                            <span class="counter-text">Nombre de personne trouvé</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-lg-3">
+                    <div class="counter-box pt-4 pt-md-0">
+                        <div class="counter-ico">
+                            <span class="ico-circle"><i class="fas fa-users"></i></span>
+                        </div>
+                        <div class="counter-num">
+                            <p class="counter">{{ totalut }}</p>
+                            <span class="counter-text">Nombre d'utilisateur Total</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-lg-3">
+                    <div class="counter-box pt-4 pt-md-0">
+                        <div class="counter-ico">
+                            <span class="ico-circle"><i class="fas fa-address-book"></i></span>
+                        </div>
+                        <div class="counter-num">
+                            <p class="counter">{{ commentsTotal }}</p>
+                            <span class="counter-text">Nombre de commentaires totale</span>
                         </div>
                     </div>
                 </div>
             </div>
+            <footer>
+                <div class="container overlay" style="margin-top: 240px ">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="copyright-box">
+                                <p class="copyright">&copy; Copyright <strong>FindMe</strong>. All Rights Reserved</p>
+                                <div class="credits">
+
+                                    Designed by <a href="#">GALECHTECH</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
         </div>
-    </footer>
-</section>
-<!--/ Section Contact-footer End /-->
+
+
+    </div>
+
+
 
 </body>
 </html>

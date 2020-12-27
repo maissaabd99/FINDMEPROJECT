@@ -39,19 +39,17 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/MesPublications", name="mespublication")
+     * @Route("/MesPublication", name="mespublication")
      * @param PublicationRepository $repository
      * @param Request $request
      * @return Response
      * @throws Exception
      */
 
-    public function index2(PublicationRepository $repository, Request $request,UtilisateurRepository $rep): Response
+    public function index2(PublicationRepository $repository, Request $request): Response
     {
         $now = new \DateTime('now');
-        $user=$this->getUser()->getId();
-        $utilisateur= $rep->find($user);
-        $pubs = $utilisateur->getPublications();
+        $pubs = $repository->findAll();
         $commentaire = new Commentaire();
         $forms = [];
         $form = $this->createForm(CommentType::class, $commentaire);
@@ -137,17 +135,12 @@ class PostController extends AbstractController
         $form1->handleRequest($request);
         $form = $this->createForm(MultimediaType::class, $mul1);
         $form->handleRequest($request);
-//        dump($pub1);
+        dump($pub1);
         $em = $this->getDoctrine()->getManager();
         if (($form1->isSubmitted())) {
-            $a = $request->request->get('markers1');
-            $b = $request->request->get('markers2');
-            //dd($a,$b);
 //            $files[] = $_FILES['files'];
             $files [] = $request->files->all();
 //            dd($files);
-            $pub1->setLongitude($a);
-            $pub1->setLatitude($b);
             $pub1->setDatePub(new \DateTime('now'));
             $pub1->setUtilisateur($repository->find($this->getUser()->getId()));
             $em->persist($pub1);
@@ -167,8 +160,8 @@ class PostController extends AbstractController
                 }
             }
             $em->flush();
-            $this->addFlash('notice', 'Publication modifiée avec succée !');
-            return $this->redirectToRoute("mespublication");
+            $this->addFlash('notice', 'Publication modifier avec succée !');
+            return $this->redirectToRoute("post");
         }
         return $this->render('publication/editpublication.html.twig', ['pub1' => $pub1, 'form' => $form->createView(), 'form1' => $form1->createView()]);
     }
@@ -254,30 +247,22 @@ class PostController extends AbstractController
 
 
 
-    /**
-     * @Route("/MesPublications/supprimerpost", name="supprimerpost")
-     * @param Request $request
-     * @param PublicationRepository $rep
-     * @return Response
-     */
-    public function deletepost(Request $request,PublicationRepository $rep): Response
-    {
-
-        $data= $request->request->get('d');
-//        $id1=$_POST['maissa'];
-//        dd($data,$request);
-        $pub = $rep->find($data);
-        $em=$this->getDoctrine()->getManager();
-        $em->remove($pub);
-        $em->flush();
-        return $this->json(['code'=>200,'message'=>'hhhhhhh']);
-    }
-
-
-
+//    /**
+//     * @Route("/post/{id}", name="singlepost")
+//     * @param $id
+//     * @param PublicationRepository $repository
+//     * @param Request $request
+//     * @return Response
+//     * @throws Exception
+//
+//     */
+//    public function singlepost($id,PublicationRepository $repository,Request $request): Response
+//    {
+//        $pub= $repository->find($id);
+//        $commentaire= new Commentaire();
+//        $form= $this->createForm(CommentType::class,$commentaire);
+//        return $this->render('publication/singlepost.html.twig',['pub'=>$pub,'form'=>$form->createView()]);
+//    }
 
 
 }
-
-
-

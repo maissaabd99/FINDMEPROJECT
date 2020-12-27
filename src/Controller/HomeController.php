@@ -21,11 +21,25 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(): Response
+    public function index(PublicationRepository $repository, UtilisateurRepository $rep, CommentaireRepository  $repo): Response
     {
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+
+        $em = $this->getDoctrine()->getManager();
+        $pubs = $repository->findAll();
+        $uti=$rep->findAll();
+        $res = $repository->findBy(['statut'=>'r']);
+        $comments=$repo->findAll();
+        $commentsTotal = count($comments);
+        $totalPubsWithStatusR = count($res);
+        $totalPubs = count($pubs);
+        $totalut = count($uti);
+
+        return $this->render('home/index.html.twig',
+            ['totalPubsWithStatusR'=>$totalPubsWithStatusR,
+                'totalPubs'=>$totalPubs,
+                'commentsTotal'=>$commentsTotal,
+                'totalut'=>$totalut]);
+
     }
 
 
@@ -87,9 +101,62 @@ class HomeController extends AbstractController
     }
 
 
+    /**
+     * @Route("/post/new", name="newpost")
+     * @param Request $request
+     * @param UtilisateurRepository $repository
+     * @return Response
+     * @throws Exception
+     */
+    public function newpublication(Request $request, UtilisateurRepository $repository): Response
+    {
+        $multimedia = new Mutimedia();
+        $pub = new Publication();
+        $form1 = $this->createForm(PublicationType::class, $pub);
+        $form1->handleRequest($request);
+        $form = $this->createForm(MultimediaType::class, $multimedia);
+        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        if (($form1->isSubmitted())) {
+//            $files[] = $_FILES['files'];
+            $a = $request->request->get('markers1');
+            $b = $request->request->get('markers2');
+//            dd($a,$b);
+            $files [] = $request->files->all();
+            $pub->setLongitude($a);
+            $pub->setLatitude($b);
+            $pub->setDatePub(new \DateTime('now'));
+            $pub->setUtilisateur($repository->find($this->getUser()->getId()));
+            $em->persist($pub);
+            $em->flush();
+            foreach ($files as $key => $value) {
+                foreach ($value as $cle => $v) {
+                    foreach ($v as $c => $file) {
+                        $p = new Mutimedia();
+                        $filename = $file->getClientOriginalName();
+//                        dd($filename);
+                        $file->move($this->getParameter('images_directory'), $filename);
+                        $p->setSource($filename);
+                        $p->setPublication($pub);
+                        $em->persist($p);
+                    }
+                }
+            }
+            $em->flush();
+            $this->addFlash('notice', 'Publication crée avec succée !');
+            return $this->redirectToRoute("post");
+        }
+        return $this->render('publication/newpublication.html.twig', ['form' => $form->createView(), 'form1' => $form1->createView()]);
+    }
+
+
 
 
 
 
 
 }
+
+
+
+
