@@ -1,0 +1,129 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"92df9c96-8da9-4608-a3bb-423f8fa79920\" name=\"Default Changelist\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_46_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_46__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_47_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_47__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_54_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_54__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/migrations/Version20201204100938.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/migrations/Version20201206131120.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Controller/PostController.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Controller/PostController.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Entity/Commentaire.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Entity/Commentaire.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/templates/publication/post.html.twig\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/publication/post.html.twig\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/templates/registration/register.html.twig\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/registration/register.html.twig\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\" doNotAsk=\"true\" synchronizationState=\"SYNCHRONIZE\">\r\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\r\n    <execution />\r\n  </component>\r\n  <component name=\"DatabaseView\">\r\n    <option name=\"SHOW_INTERMEDIATE\" value=\"true\" />\r\n    <option name=\"GROUP_DATA_SOURCES\" value=\"true\" />\r\n    <option name=\"GROUP_SCHEMA\" value=\"true\" />\r\n    <option name=\"GROUP_CONTENTS\" value=\"false\" />\r\n    <option name=\"SORT_POSITIONED\" value=\"false\" />\r\n    <option name=\"SHOW_EMPTY_GROUPS\" value=\"false\" />\r\n    <option name=\"AUTO_SCROLL_FROM_SOURCE\" value=\"false\" />\r\n    <option name=\"HIDDEN_KINDS\">\r\n      <set />\r\n    </option>\r\n    <expand />\r\n    <select />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GithubProjectSettings\">\r\n    <option name=\"CREATE_PULL_REQUEST_DEFAULT_BRANCH\" value=\"master\" />\r\n    <option name=\"CREATE_PULL_REQUEST_DEFAULT_REPO_USER\" value=\"maissaabd99\" />\r\n    <option name=\"CREATE_PULL_REQUEST_DEFAULT_REPO_NAME\" value=\"FINDMEPROJECT\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-http\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/form\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-guard\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/yaml\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/options-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/framework-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/expression-language\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-profiler-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/twig\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/browser-kit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-access\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dependency-injection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/doctrine-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/phpunit-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-csrf\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ocramius/proxy-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php72\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-server-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/asset\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/config\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/stopwatch\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/messenger\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sensio/framework-extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/filesystem\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-info\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-core\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/intl\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/serializer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/maker-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dom-crawler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/zendframework/zend-code\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/zendframework/zend-eventmanager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/flex\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/annotations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/collections\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/migrations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/orm\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/persistence\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/sql-formatter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/google-mailer\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1keqj1I8imUuPRAPSgejEaQ4OGg\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/public/assets\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\ASUS\\Desktop\\findme\\public\\assets\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\ASUS\\Desktop\\findme\\templates\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"92df9c96-8da9-4608-a3bb-423f8fa79920\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1606071536903</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1606071536903</updated>\r\n      <workItem from=\"1606071538230\" duration=\"4869000\" />\r\n      <workItem from=\"1606150192917\" duration=\"3922000\" />\r\n      <workItem from=\"1606476628574\" duration=\"4757000\" />\r\n      <workItem from=\"1607335673483\" duration=\"3363000\" />\r\n      <workItem from=\"1607359943806\" duration=\"13000\" />\r\n      <workItem from=\"1607361141225\" duration=\"7360000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Home page\">\r\n      <created>1606155003620</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1606155003620</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Home page\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Home page\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"476\" y=\"81\" key=\"#com.intellij.ide.util.MemberChooser\" timestamp=\"1606480340135\">\r\n      <screen x=\"0\" y=\"0\" width=\"1366\" height=\"728\" />\r\n    </state>\r\n    <state x=\"476\" y=\"81\" key=\"#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728\" timestamp=\"1606480340135\" />\r\n    <state x=\"413\" y=\"120\" key=\"#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog\" timestamp=\"1607337446160\">\r\n      <screen x=\"0\" y=\"0\" width=\"1366\" height=\"728\" />\r\n    </state>\r\n    <state x=\"413\" y=\"120\" key=\"#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728\" timestamp=\"1607337446159\" />\r\n    <state x=\"308\" y=\"0\" key=\"CommitChangelistDialog2\" timestamp=\"1606155002785\">\r\n      <screen x=\"0\" y=\"0\" width=\"1366\" height=\"728\" />\r\n    </state>\r\n    <state x=\"308\" y=\"0\" key=\"CommitChangelistDialog2/0.0.1366.728@0.0.1366.728\" timestamp=\"1606155002785\" />\r\n    <state x=\"446\" y=\"230\" key=\"Github.CreatePullRequestDialog\" timestamp=\"1606076584021\">\r\n      <screen x=\"0\" y=\"0\" width=\"1366\" height=\"728\" />\r\n    </state>\r\n    <state x=\"446\" y=\"230\" key=\"Github.CreatePullRequestDialog/0.0.1366.728@0.0.1366.728\" timestamp=\"1606076584021\" />\r\n    <state x=\"517\" y=\"288\" key=\"NewPhpFileDialog\" timestamp=\"1606352035214\">\r\n      <screen x=\"0\" y=\"0\" width=\"1366\" height=\"728\" />\r\n    </state>\r\n    <state x=\"517\" y=\"288\" key=\"NewPhpFileDialog/0.0.1366.728@0.0.1366.728\" timestamp=\"1606352035214\" />\r\n    <state x=\"275\" y=\"96\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1606155013607\">\r\n      <screen x=\"0\" y=\"0\" width=\"1366\" height=\"728\" />\r\n    </state>\r\n    <state x=\"275\" y=\"96\" key=\"Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728\" timestamp=\"1606155013607\" />\r\n    <state x=\"339\" y=\"162\" key=\"run.anything.popup\" timestamp=\"1607289197736\">\r\n      <screen x=\"0\" y=\"0\" width=\"1366\" height=\"728\" />\r\n    </state>\r\n    <state x=\"339\" y=\"162\" key=\"run.anything.popup/0.0.1366.728@0.0.1366.728\" timestamp=\"1607289197736\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"php-line-method\">\r\n          <url>file://$PROJECT_DIR$/src/Controller/PostController.php</url>\r\n          <line>40</line>\r\n          <properties>\r\n            <option name=\"className\" value=\"\\App\\Controller\\PostController\" />\r\n            <option name=\"methodName\" value=\"newpublication\" />\r\n          </properties>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"php\">\r\n          <url>file://$PROJECT_DIR$/templates/publication/post.html.twig</url>\r\n          <line>64</line>\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 1dc8328f5451c7192c0a8894670f1150b6329133)
++++ .idea/workspace.xml	(date 1607421728088)
+@@ -2,19 +2,7 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="92df9c96-8da9-4608-a3bb-423f8fa79920" name="Default Changelist" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_46_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_46__Default_Changelist_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_47_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_47__Default_Changelist_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_54_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_30_11_2020_17_54__Default_Changelist_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/migrations/Version20201204100938.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/migrations/Version20201206131120.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Entity/Commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Commentaire.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/templates/publication/post.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publication/post.html.twig" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -40,6 +28,32 @@
+     <select />
+   </component>
+   <component name="Git.Settings">
++    <excluded-from-favorite>
++      <branch-storage>
++        <map>
++          <entry type="REMOTE">
++            <value>
++              <list>
++                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
++              </list>
++            </value>
++          </entry>
++        </map>
++      </branch-storage>
++    </excluded-from-favorite>
++    <favorite-branches>
++      <branch-storage>
++        <map>
++          <entry type="REMOTE">
++            <value>
++              <list>
++                <branch-info repo="$PROJECT_DIR$" source="maissaabd99/master" />
++              </list>
++            </value>
++          </entry>
++        </map>
++      </branch-storage>
++    </favorite-branches>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="GithubProjectSettings">
+@@ -188,7 +202,9 @@
+       <workItem from="1606476628574" duration="4757000" />
+       <workItem from="1607335673483" duration="3363000" />
+       <workItem from="1607359943806" duration="13000" />
+-      <workItem from="1607361141225" duration="7360000" />
++      <workItem from="1607361141225" duration="8108000" />
++      <workItem from="1607373783525" duration="1133000" />
++      <workItem from="1607421277548" duration="451000" />
+     </task>
+     <task id="LOCAL-00001" summary="Home page">
+       <created>1606155003620</created>
+@@ -197,7 +213,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1606155003620</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="Commentaires">
++      <created>1607369509160</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1607369509160</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -205,7 +228,8 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Home page" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Home page" />
++    <MESSAGE value="Commentaires" />
++    <option name="LAST_COMMIT_MESSAGE" value="Commentaires" />
+   </component>
+   <component name="WindowStateProjectService">
+     <state x="476" y="81" key="#com.intellij.ide.util.MemberChooser" timestamp="1606480340135">
+@@ -216,10 +240,10 @@
+       <screen x="0" y="0" width="1366" height="728" />
+     </state>
+     <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1607337446159" />
+-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1606155002785">
++    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1607369508410">
+       <screen x="0" y="0" width="1366" height="728" />
+     </state>
+-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1606155002785" />
++    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1607369508410" />
+     <state x="446" y="230" key="Github.CreatePullRequestDialog" timestamp="1606076584021">
+       <screen x="0" y="0" width="1366" height="728" />
+     </state>
+@@ -228,10 +252,14 @@
+       <screen x="0" y="0" width="1366" height="728" />
+     </state>
+     <state x="517" y="288" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1606352035214" />
+-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1606155013607">
++    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1607369517311">
+       <screen x="0" y="0" width="1366" height="728" />
+     </state>
+-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1606155013607" />
++    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1607369517311" />
++    <state x="500" y="277" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607421564320">
++      <screen x="0" y="0" width="1366" height="728" />
++    </state>
++    <state x="500" y="277" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1607421564320" />
+     <state x="339" y="162" key="run.anything.popup" timestamp="1607289197736">
+       <screen x="0" y="0" width="1366" height="728" />
+     </state>
