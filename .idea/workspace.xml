@@ -2,11 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="185ecd3d-243e-44ca-a2e0-c7401b5e22ac" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_23_2020_6_21_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_23_2020_6_21_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_23_2020_6_25_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_23_2020_6_25_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/FINDMEPROJECT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FINDMEPROJECT.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/calcul/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/calcul/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/compte.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/compte.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/publication/MesPublication.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publication/MesPublication.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/publication/editpublication.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publication/editpublication.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/publication/newpublication.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publication/newpublication.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/publication/post.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publication/post.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/publication/repost.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publication/repost.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/publication/singlepost.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/publication/singlepost.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +165,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/mercure" />
       <path value="$PROJECT_DIR$/vendor/symfony/mercure-bundle" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-time-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1keqj1I8imUuPRAPSgejEaQ4OGg" />
@@ -304,10 +315,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1609096228632" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1607081435966">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1609099091147">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1607081435966" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1609099091147" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1607952514347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

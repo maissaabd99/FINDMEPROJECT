@@ -48,4 +48,21 @@ class CommentController extends AbstractController
             'form'=>$form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/post/MesPublications", name="supprimerpost")
+     * @param PublicationRepository $repository
+     * @param Request $request
+     * @return Response
+     */
+    public function delpost(PublicationRepository $repository,Request $request): Response
+    {
+        $data= $request->request->get('d');
+//        dd($data);
+        $pub = $repository->find($data);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($pub);
+        $em->flush();
+        return $this->json(['code' => 200], 200);
+    }
 }

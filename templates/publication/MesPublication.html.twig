@@ -119,6 +119,8 @@
         </div>
     </div>
 </section>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdnbu2dKsKShoO4zqET8uFYY6EV4KapxE&callback=initMap&libraries=&v=weekly" defer></script>
+
 <style>
   .dropdown:hover{
       color: lightskyblue;
@@ -128,6 +130,33 @@
   }
 
 </style>
+<script>
+    // $(document).ready(function() {
+    let map;
+    let markers = [];
+    function initMap() {
+        tab = document.querySelectorAll("div.map1");
+        tab2 = document.querySelectorAll("div.test");
+        long = tab2[0].childNodes;
+        console.log(tab2[0].childNodes);
+        console.log(long[1],long[3]);
+        for (let i = 0; i < tab.length; i++) {
+            var latit = Number(tab2[i].childNodes[3].value);
+            var long =Number(tab2[i].childNodes[1].value);
+            const haightAshbury = {lat:long ,lng:latit};
+            map = new google.maps.Map(document.getElementById(tab[i].id), {
+                zoom: 12,
+                center: haightAshbury,
+                draggable: true
+            });
+            new google.maps.Marker({
+                position: haightAshbury,
+                map,
+                title: "Localisation",
+            });
+        }
+    }
+</script>
 <section style="margin-left: 20%" id="main">
     <script>
         function openNav() {
@@ -182,6 +211,12 @@
                             <div style="height: 100px;position: relative">
                                 <span style="font-size: small">{{ pub.contenuPub}}</span>
                             </div>
+                            <div id="{{ pub.id }}" class="map1" style="height: 200px"></div>
+                            <div class="test">
+                                <input id="tableau1" type="hidden" value="{{ pub.longitude }}"/>
+                                <input id="tableau2" type="hidden" value="{{ pub.latitude }}"/>
+                            </div>
+                            <br>
                             <div class="inner">
                                 <!--***** GALLERY *****-->
                                 {% if pub.mutimedia | length == 4 %}
@@ -428,14 +463,14 @@
 <!-- PhotoSwipe JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js"></script>
-<footer style="color: black">
-    <div class="container">
+<footer>
+    <div class="container" style="color: black">
         <div class="row">
             <div class="col-sm-12">
                 <div class="copyright-box">
                     <p class="copyright">&copy; Copyright <strong>FINDME</strong>. All Rights Reserved</p>
                     <div class="credits">
-                        Developed by <a href="#" style="color: black">GALACTECH TEAM</a>
+                        Developed by GALACTECH TEAM
                     </div>
                 </div>
             </div>
